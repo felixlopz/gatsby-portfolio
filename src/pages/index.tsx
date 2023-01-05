@@ -1,6 +1,5 @@
 import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
-import { setDarkMode, setLightMode } from "../darkMode";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styled from "styled-components";
