@@ -6,8 +6,14 @@ import {
   LightBackgroundColorClasses,
   DarkBackgroundColorClasses,
   DarkTextColorClasses,
-  LightTextColorClasses,
 } from "../styles/globalTwinClasses";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faInstagram,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 const LogoWrapper = styled.div`
   ${DarkTextColorClasses}
@@ -69,7 +75,7 @@ const MenuIcon = styled.div<{ open: boolean }>`
 const MobileNavigationWrapper = styled.div<{ open: boolean }>`
   ${LightBackgroundColorClasses}
 
-  ${tw`absolute top-0 left-0 w-screen h-screen z-10 flex items-center justify-center`}
+  ${tw`absolute top-0 left-0 w-screen h-screen z-10 flex flex-col items-center justify-center py-20`}
   transition: all 0.4s ease;
   opacity: ${(props) => (props.open ? 1 : 0)};
   transform: ${(props) => (props.open ? "translateY(0)" : "translateY(-100%)")};
@@ -83,6 +89,24 @@ const NavList = styled.ul<{ open: boolean }>`
 const NavLink = styled.li`
   ${DarkTextColorClasses}
   ${tw`font-mont font-bold text-3xl uppercase my-4`}
+`;
+
+const SocialIconsWrapper = styled.ul`
+  ${tw`w-full flex items-center justify-center gap-x-4 mt-auto`}
+`;
+
+const SocialIcon = styled.li`
+  ${DarkTextColorClasses}
+`;
+
+const StyledFontAwesome = styled(FontAwesomeIcon)`
+  width: 24px;
+  height: 24px;
+`;
+
+const MobileNavigationBalancer = styled.div`
+  ${tw`opacity-0 pointer-events-none invisible mb-auto`}
+  height: 24px;
 `;
 
 const HeaderWrapper = styled.header<{ scrolled: boolean }>`
@@ -170,11 +194,23 @@ const Header = () => {
         </MenuIconWrapper>
       </HeaderContainer>
       <MobileNavigationWrapper open={mobileMenuOpen}>
+        <MobileNavigationBalancer />
         <NavList open={mobileMenuOpen}>
           <NavLink>Works</NavLink>
           <NavLink>About</NavLink>
           <NavLink>Contact</NavLink>
         </NavList>
+        <SocialIconsWrapper>
+          <SocialIcon>
+            <StyledFontAwesome icon={faGithub} />
+          </SocialIcon>
+          <SocialIcon>
+            <StyledFontAwesome icon={faInstagram} />
+          </SocialIcon>
+          <SocialIcon>
+            <StyledFontAwesome icon={faLinkedin} />
+          </SocialIcon>
+        </SocialIconsWrapper>
       </MobileNavigationWrapper>
     </HeaderWrapper>
   );
