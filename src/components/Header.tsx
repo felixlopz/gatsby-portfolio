@@ -37,7 +37,7 @@ const LogoWrapper = styled.div`
 const LogoSvg = styled.svg``;
 
 const MenuIconWrapper = styled.div`
-  ${tw`relative flex justify-center items-center z-20 cursor-pointer ml-auto`}
+  ${tw`relative flex justify-center items-center z-50 cursor-pointer ml-auto`}
   width: 25px;
   height: 30px;
 `;
@@ -75,7 +75,7 @@ const MenuIcon = styled.div<{ open: boolean }>`
 const MobileNavigationWrapper = styled.div<{ open: boolean }>`
   ${LightBackgroundColorClasses}
 
-  ${tw`absolute top-0 left-0 w-screen h-screen z-10 flex flex-col items-center justify-center py-20`}
+  ${tw`absolute top-0 left-0 w-screen h-screen z-40 flex flex-col items-center justify-center py-20`}
   transition: all 0.4s ease;
   opacity: ${(props) => (props.open ? 1 : 0)};
   transform: ${(props) => (props.open ? "translateY(0)" : "translateY(-100%)")};
@@ -91,8 +91,10 @@ const NavLink = styled.li`
   ${tw`font-mont font-bold text-3xl uppercase my-4`}
 `;
 
-const SocialIconsWrapper = styled.ul`
+const SocialIconsWrapper = styled.ul<{ open: boolean }>`
   ${tw`w-full flex items-center justify-center gap-x-4 mt-auto`}
+  opacity: ${(props) => (props.open ? 1 : 0)};
+  transition: ${(props) => (props.open ? "opacity 0.3s 0.35s ease" : "")};
 `;
 
 const SocialIcon = styled.li`
@@ -112,7 +114,7 @@ const MobileNavigationBalancer = styled.div`
 const HeaderWrapper = styled.header<{ scrolled: boolean }>`
   ${LightBackgroundColorClasses}
 
-  ${tw`fixed w-full container`}
+  ${tw`fixed w-full container top-0`}
 
   height: ${(props) => (props.scrolled ? "80px" : "163px")};
 
@@ -200,7 +202,7 @@ const Header = () => {
           <NavLink>About</NavLink>
           <NavLink>Contact</NavLink>
         </NavList>
-        <SocialIconsWrapper>
+        <SocialIconsWrapper open={mobileMenuOpen}>
           <SocialIcon>
             <StyledFontAwesome icon={faGithub} />
           </SocialIcon>

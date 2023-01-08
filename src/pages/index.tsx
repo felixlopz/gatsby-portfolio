@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import styled from "styled-components";
 import { LightBackgroundColorClasses } from "../styles/globalTwinClasses";
 import tw from "twin.macro";
+import { About, Hero } from "../sections";
 
 const Main = styled.main`
   ${LightBackgroundColorClasses}
@@ -15,7 +16,10 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <>
       <Header></Header>
-      <Main></Main>
+      <Main>
+        <Hero></Hero>
+        <About></About>
+      </Main>
       <Footer></Footer>
     </>
   );

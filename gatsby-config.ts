@@ -15,7 +15,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`montserrat\:300,400,600,700,900`],
+        fonts: [`montserrat\:300,400,600,700,900, 600i`],
         display: "swap",
       },
     },
