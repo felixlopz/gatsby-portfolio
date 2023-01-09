@@ -1,6 +1,4 @@
 import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
-import styled from "styled-components";
-import tw from "twin.macro";
 
 type ButtonProps = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
