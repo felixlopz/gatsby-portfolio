@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { DarkTextColorClasses } from "../styles/globalTwinClasses";
+import {
+  DarkTextColorClasses,
+  GradientTextColorClases,
+} from "../styles/globalTwinClasses";
 import SectionTitle from "./SectionTitle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -43,6 +46,10 @@ const PictureWrapper = styled.div`
 
 const MadeWithLoveFooter = styled.div`
   ${tw`text-xs font-mont font-light text-dark dark:text-light mb-2`}
+
+  strong {
+    ${GradientTextColorClases}
+  }
 `;
 
 export const Footer = () => {
@@ -66,7 +73,8 @@ export const Footer = () => {
       </SocialIconsWrapper>
       <PictureWrapper></PictureWrapper>
       <MadeWithLoveFooter>
-        Made with 💙 by Félix López &copy; {new Date().getFullYear()}
+        Made with <strong>♥</strong> by Félix López &copy;{" "}
+        {new Date().getFullYear()}
       </MadeWithLoveFooter>
     </FooterWrapper>
   );
