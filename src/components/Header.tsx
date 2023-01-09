@@ -142,7 +142,7 @@ const HeaderContainer = styled.div`
   ${tw`w-full h-full relative flex items-center`}
 `;
 
-const Header = () => {
+export const Header = () => {
   const { offsetFromTop } = useScrollDirection();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

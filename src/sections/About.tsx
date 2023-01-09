@@ -1,56 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import tw, { theme } from "twin.macro";
-import {
-  DarkBackgroundColorClasses,
-  DarkTextColorClasses,
-  GradientTextColorClases,
-  LightTextColorClasses,
-} from "../styles/globalTwinClasses";
-import { getCurrentThemeMode, ThemeMode } from "../styles/themeMode";
-
-const SectionTitle = styled.h2`
-  ${tw`font-extrabold font-mont text-center`}
-  font-size: 1.75rem;
-  line-height: 2.5rem;
-  ${GradientTextColorClases}
-`;
-
-const SectionQuote = styled.blockquote`
-  ${DarkTextColorClasses}
-  ${tw`font-semibold font-mont italic text-center text-base`}
-`;
-
-const SectionAuthor = styled.span`
-  ${DarkTextColorClasses}
-  ${tw`font-semibold font-mont text-xs self-end relative`}
-  z-index: -1;
-  &::before {
-    ${DarkBackgroundColorClasses};
-    ${tw`content absolute top-1/2`}
-    left: -1.5rem;
-    width: 1rem;
-    height: 0.06rem;
-  }
-`;
-
-const SectionBackgroundTitle = styled.span`
-  ${tw`font-mont uppercase font-extrabold absolute block left-1/2 top-0 z-0 opacity-10 w-max`}
-  background: linear-gradient(180deg, #fafaf7, rgba(250, 250, 247, 0));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-stroke: 1px transparent;
-  ${LightTextColorClasses};
-  transform: translate(-50%, -30%);
-  line-height: 1;
-  font-size: 5rem;
-  z-index: -1;
-`;
-
-const SectionTitleWrapper = styled.div`
-  ${tw`flex flex-col mt-12 relative`}
-  z-index: -1;
-`;
+import tw from "twin.macro";
+import { SectionTitle } from "../components";
 
 const AboutWrapper = styled.section`
   ${tw`container`}
@@ -140,12 +91,12 @@ export const About = () => {
 
   return (
     <AboutWrapper>
-      <SectionTitleWrapper>
-        {/* <SectionBackgroundTitle>About Me</SectionBackgroundTitle> */}
-        <SectionTitle>me, myself and I</SectionTitle>
-        <SectionQuote>"Be yourself; everyone is already taken."</SectionQuote>
-        <SectionAuthor>Oscar Wild</SectionAuthor>
-      </SectionTitleWrapper>
+      <SectionTitle
+        title="me, myself and I"
+        quote="be yourself; everyone else is already taken."
+        author="Oscar Wild"
+        // backgroundTitle="About Me"
+      />
       <InformationTabsWrapper>
         <InformationHeader>
           <StyledTabButton
