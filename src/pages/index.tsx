@@ -7,10 +7,7 @@ import { LightBackgroundColorClasses } from "../styles/globalTwinClasses";
 import tw from "twin.macro";
 import { About, Hero } from "../sections";
 
-const Main = styled.main`
-  ${LightBackgroundColorClasses}
-  ${tw`w-full h-screen`}
-`;
+const Main = styled.main``;
 
 const IndexPage: React.FC<PageProps> = () => {
   return (

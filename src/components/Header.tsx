@@ -22,7 +22,6 @@ const LogoWrapper = styled.div`
   transform: translate(-50%, -50%);
 
   max-width: 60px;
-  display: block;
 
   transition: max-width 0.3s ease-in;
   transition: all 0.3s ease-in;

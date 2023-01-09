@@ -1,7 +1,7 @@
 require("./src/styles/global.css"); // tailwindcss setup
 const {
   checkPreferredColorSchemeAndSetThemeMode,
-} = require("./src/darkMode.ts");
+} = require("./src/styles/themeMode.ts");
 
 exports.onInitialClientRender = () => {
   checkPreferredColorSchemeAndSetThemeMode();

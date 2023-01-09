@@ -1,9 +1,9 @@
 import React from "react";
-import { setDarkMode, setLightMode } from "../darkMode";
+import { setDarkMode, setLightMode } from "../styles/themeMode";
 
 const Footer = () => {
   return (
-    <>
+    <footer>
       <div
         onClick={() => {
           setDarkMode();
@@ -18,7 +18,7 @@ const Footer = () => {
       <div>Footer</div>
       <div>Footer</div>
       <div>Footer</div>
-    </>
+    </footer>
   );
 };
 
