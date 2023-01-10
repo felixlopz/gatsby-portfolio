@@ -1,4 +1,4 @@
-import React from "react";
+import React, { DetailedHTMLProps } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import {
@@ -47,7 +47,7 @@ const SectionBackgroundTitle = styled.span`
 `;
 
 const SectionTitleWrapper = styled.div`
-  ${tw`flex flex-col mt-12 relative`}
+  ${tw`flex flex-col mt-24 mb-12 relative`}
   z-index: -1;
 `;
 
@@ -57,6 +57,7 @@ interface SectionTitleProps {
   author?: string;
   backgroundTitle?: string;
   children?: React.ReactNode;
+  className?: string;
 }
 
 export const SectionTitle: React.FC<SectionTitleProps> = ({

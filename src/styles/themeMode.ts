@@ -4,6 +4,7 @@ export enum ThemeMode {
 }
 
 export function checkPreferredColorSchemeAndSetThemeMode() {
+  // TOPDO: change to be in pair with the actual theme of preference
   if (
     localStorage.theme === ThemeMode.Dark ||
     (!("theme" in localStorage) &&

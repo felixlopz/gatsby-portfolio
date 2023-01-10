@@ -9,7 +9,7 @@ import {
 
 const Title = styled.h1`
   ${DarkTextColorClasses}
-  ${tw`font-extrabold font-mont text-center mb-6`}
+  ${tw`font-extrabold font-mont mb-6`}
   font-size: 1.75rem;
   line-height: 2.5rem;
   span {
@@ -19,7 +19,7 @@ const Title = styled.h1`
 
 const SubTitle = styled.p`
   ${DarkTextColorClasses}
-  ${tw`font-light font-mont text-base text-center`}
+  ${tw`font-light font-mont text-base`}
 `;
 
 const HeroWrapper = styled.section`
@@ -28,11 +28,11 @@ const HeroWrapper = styled.section`
 `;
 
 const InfoWrapper = styled.div`
-  ${tw`flex flex-col items-center justify-center`}
+  ${tw`flex flex-col`}
 `;
 
 const StyledButton = styled(Button)`
-  ${tw`mt-6`}
+  ${tw`mt-6 self-center`}
 `;
 
 const FigureWrapper = styled.div``;
@@ -42,10 +42,12 @@ export const Hero = () => {
     <HeroWrapper>
       <InfoWrapper>
         <Title>
-          hello, i’m Félix López, <span>software engineer</span>
+          hello <br></br> i’m Félix López <br></br>{" "}
+          <span>creative developer</span>
         </Title>
         <SubTitle>
-          4+ years of experience working with backend / frontend technologies.
+          4+ years of experience working on frontend and backend web/mobile
+          projects.
         </SubTitle>
         <StyledButton>my works</StyledButton>
       </InfoWrapper>

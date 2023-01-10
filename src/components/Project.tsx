@@ -1,53 +1,106 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faFigma } from "@fortawesome/free-brands-svg-icons";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { GradientTextColorClases } from "../styles/globalTwinClasses";
 
 export interface Project {
+  type: "development" | "design";
   id: number;
   title: string;
   description: string;
-  stack: Array<string>; // TODO: rename stack to technologies
+  technologies?: Array<string>;
   thumbnail: string;
   demo: string;
-  sourceCode: string;
+  sourceCode?: string;
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  ${tw``}
+`;
 
-const Picture = styled.div``;
+const Thumbnail = styled.div`
+  ${tw`w-full h-0`}
+  padding-top: 56.25%;
+  background: pink;
+`;
 
-const Information = styled.div``;
+const Information = styled.div`
+  ${tw`mt-6`}
+`;
 
-const Title = styled.h3``;
+const TitleWrapper = styled.div`
+  ${tw`mb-1 flex items-center justify-between`}
+`;
 
-const Description = styled.p``;
+const Title = styled.h3`
+  ${tw`font-extrabold font-mont inline lowercase`}
+  font-size: 1.75rem;
+  line-height: 2.5rem;
+  ${GradientTextColorClases}
+`;
 
-const StackWrapper = styled.div``;
+const Description = styled.p`
+  ${tw`font-mont font-light text-base text-dark dark:text-light lowercase`}
+`;
 
-const StackItem = styled.p``;
+const TechnologiesWrapper = styled.div`
+  ${tw`flex flex-row flex-wrap gap-x-5 inline mt-4`}
+`;
 
-const ButtonsWrapper = styled.div``;
+const Technology = styled.p`
+  ${tw`font-mont text-dark dark:text-light font-semibold text-lg min-w-fit lowercase`}
+`;
+
+const LinksWrapper = styled.div`
+  ${tw`flex gap-x-4 mt-6`}
+`;
+
+const StyledFontAwesome = styled(FontAwesomeIcon)`
+  ${tw`text-light dark:text-dark p-2 bg-dark dark:bg-light rounded-full`}
+  width: 20px;
+  height: 20px;
+`;
 
 export const ProjectItem: React.FC<Project> = ({
   title,
   id,
+  type,
   description,
-  stack,
+  technologies,
   thumbnail,
   demo,
   sourceCode,
 }) => {
   return (
     <Wrapper>
-      <Picture></Picture>
+      <Thumbnail></Thumbnail>
       <Information>
-        <Title>{title}</Title>
+        <TitleWrapper>
+          <Title>{title}</Title>
+        </TitleWrapper>
         <Description>{description}</Description>
-        <StackItem>
-          {stack.map((stack) => (
-            <StackItem>{stack}</StackItem>
-          ))}
-        </StackItem>
+        {technologies && (
+          <TechnologiesWrapper>
+            {technologies.map((tech) => (
+              <Technology>{tech}</Technology>
+            ))}
+          </TechnologiesWrapper>
+        )}
+        <LinksWrapper>
+          {type === "development" ? (
+            <>
+              <StyledFontAwesome icon={faGithub} />
+              <StyledFontAwesome icon={faLink} />
+            </>
+          ) : (
+            <>
+              <StyledFontAwesome icon={faFigma} />
+            </>
+          )}
+        </LinksWrapper>
       </Information>
     </Wrapper>
   );

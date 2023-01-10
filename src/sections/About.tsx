@@ -92,7 +92,7 @@ export const About = () => {
   return (
     <AboutWrapper>
       <SectionTitle
-        title="me, myself and I"
+        title="about me"
         quote="be yourself; everyone else is already taken."
         author="Oscar Wild"
         // backgroundTitle="About Me"
@@ -125,17 +125,18 @@ export const About = () => {
             <AboutMeTab>
               <p>
                 Hello I’m Félix López a {getYearsOld(new Date(1998, 8, 15))}{" "}
-                years old software engineer based in Venezuela, I started in web
-                development in the middle of my university career and quickly
-                got hooked in the tech world and started working on my own
-                projects subsequently I started learning mobile development and
-                started working on freelance projects.
+                years old creative developer based in Venezuela, I started in
+                web development in the middle of my university career and
+                quickly got hooked in the tech world and started working on my
+                own projects subsequently I started learning mobile development
+                and started working on freelance projects.
               </p>
               <p>
                 My passion is to develop quality websites and applications that
-                are adaptable, powerful, modern in style and visually attractive
-                I'm self-taught, fast learner, and a true believer that anything
-                is possible with hard work, dedication, and passion.
+                are adaptable, powerful, modern in style and visually
+                attractive. I'm self-taught, fast learner, and a true believer
+                that anything is possible with hard work, dedication, and
+                passion.
               </p>
             </AboutMeTab>
           )}

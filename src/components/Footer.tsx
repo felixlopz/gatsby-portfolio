@@ -18,7 +18,7 @@ const FooterWrapper = styled.footer`
 `;
 
 const EmailContact = styled.a`
-  ${tw`text-lg text-dark dark:text-light font-mont font-semibold mt-8 mb-4`}
+  ${tw`text-lg text-dark dark:text-light font-mont font-semibold mt-2 mb-4`}
 `;
 
 const SocialIconsWrapper = styled.ul`
