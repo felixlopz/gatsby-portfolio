@@ -7,7 +7,7 @@ const FooterWrapper = styled.footer`
   ${tw`container flex flex-col items-center`}
 `;
 
-const MadeWithLoveFooter = styled.div`
+const MadeWithLoveFooter = styled.span`
   ${tw`text-xs font-mont font-light text-dark dark:text-light mb-2`}
 
   strong {
