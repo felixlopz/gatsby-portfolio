@@ -95,7 +95,7 @@ export const About = () => {
         title="about me"
         quote="be yourself; everyone else is already taken."
         author="Oscar Wild"
-        // backgroundTitle="About Me"
+        backgroundTitle="About Me"
       />
       <InformationTabsWrapper>
         <InformationHeader>

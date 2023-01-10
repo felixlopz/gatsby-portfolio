@@ -67,7 +67,7 @@ export const Portfolio = () => {
     <PortfolioWrapper>
       <SectionTitle
         title="my works"
-        // backgroundTitle="portfolio"
+        backgroundTitle="portfolio"
         quote="If I had eight hours to chop down a tree, I’d spend six hours sharpening my axe."
         author="Abraham Lincoln"
       />

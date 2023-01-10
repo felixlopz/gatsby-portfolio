@@ -34,14 +34,10 @@ const SectionAuthor = styled.span`
 `;
 
 const SectionBackgroundTitle = styled.span`
-  ${tw`font-mont uppercase font-extrabold absolute block left-1/2 top-0 z-0 opacity-10 w-max`}
-  background: linear-gradient(180deg, #fafaf7, rgba(250, 250, 247, 0));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-stroke: 1px transparent;
-  ${LightTextColorClasses};
+  ${LightTextColorClasses}
+  ${tw`font-mont uppercase font-extrabold absolute left-1/2 top-0 opacity-10 w-max bg-gradient-to-b from-light to-transparent bg-clip-text leading-none`}
+
   transform: translate(-50%, -30%);
-  line-height: 1;
   font-size: 5rem;
   z-index: -1;
 `;

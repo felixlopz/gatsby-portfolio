@@ -2,9 +2,11 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { Header, Footer } from "../components";
 import styled from "styled-components";
-import { About, Hero, Portfolio } from "../sections";
+import { About, Contact, Hero, Portfolio } from "../sections";
 
-const Main = styled.main``;
+const Main = styled.main`
+  overflow-x: hidden;
+`;
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -14,6 +16,7 @@ const IndexPage: React.FC<PageProps> = () => {
         <Hero />
         <Portfolio />
         <About />
+        <Contact />
       </Main>
       <Footer />
     </>
