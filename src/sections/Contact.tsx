@@ -23,7 +23,7 @@ const ContactWrapper = styled.section`
   }
 
   @media ${mediaQuery("lg")} {
-    max-width: 1024px;
+    max-width: 1280px;
   }
 `;
 

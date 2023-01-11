@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { Button } from "../components";
+import { Button, HeroFigurine } from "../components";
 import { mediaQuery } from "../styles";
 import {
   DarkTextColorClasses,
@@ -93,7 +93,9 @@ export const Hero = () => {
           <StyledButton>my works</StyledButton>
         </ButtonWrapper>
       </InfoWrapper>
-      <FigureWrapper></FigureWrapper>
+      <FigureWrapper>
+        <HeroFigurine />
+      </FigureWrapper>
     </HeroWrapper>
   );
 };
