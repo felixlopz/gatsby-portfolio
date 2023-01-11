@@ -14,6 +14,7 @@ import {
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const LogoWrapper = styled.div`
   ${DarkTextColorClasses}
@@ -105,6 +106,14 @@ const StyledFontAwesome = styled(FontAwesomeIcon)`
   height: 24px;
 `;
 
+const ThemeSwitcherWrapper = styled.div<{ open: boolean }>`
+  ${tw`z-50`}
+  visibility: ${(props) => (props.open ? "visible" : "hidden")};
+  opacity: ${(props) => (props.open ? 1 : 0)};
+  pointer-events: ${(props) => (props.open ? "all" : "none")};
+  margin-left: 20px;
+`;
+
 const MobileNavigationBalancer = styled.div`
   ${tw`opacity-0 pointer-events-none invisible mb-auto`}
   height: 24px;
@@ -186,6 +195,9 @@ export const Header = () => {
             />
           </LogoSvg>
         </LogoWrapper>
+        <ThemeSwitcherWrapper open={mobileMenuOpen}>
+          <ThemeSwitcher />
+        </ThemeSwitcherWrapper>
         <MenuIconWrapper
           onClick={() => {
             toggleMobileMenu();
