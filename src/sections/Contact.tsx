@@ -44,7 +44,7 @@ const PictureWrapper = styled.div`
 export const Contact = () => {
   return (
     <ContactWrapper>
-      <SectionTitle backgroundTitle="Contact Me">
+      <SectionTitle backgroundTitle="Contact">
         let’s build something{" "}
         <strong className="text-dark dark:text-light">awesome together</strong>
       </SectionTitle>

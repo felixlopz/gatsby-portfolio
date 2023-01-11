@@ -35,7 +35,7 @@ const SectionAuthor = styled.span`
 
 const SectionBackgroundTitle = styled.span`
   ${LightTextColorClasses}
-  ${tw`font-mont uppercase font-extrabold absolute left-1/2 top-0 opacity-10 w-max bg-gradient-to-b from-light to-transparent bg-clip-text leading-none`}
+  ${tw`font-mont uppercase font-extrabold absolute left-1/2 top-0 opacity-90 dark:opacity-50 w-max bg-gradient-to-b from-dark to-transparent bg-clip-text leading-none dark:from-light`}
 
   transform: translate(-50%, -30%);
   font-size: 5rem;
