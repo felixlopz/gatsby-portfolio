@@ -2,19 +2,40 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { SectionTitle } from "../components";
+import { mediaQuery } from "../styles";
 
-const AboutWrapper = styled.section`
-  ${tw`container`}
+const AboutWrapper = styled.section``;
+
+const AboutContainer = styled.div`
+  ${tw`container mx-auto`}
+
+  @media ${mediaQuery("lg")} {
+    max-width: 1280px;
+  }
 `;
 
-const InformationTabsWrapper = styled.div``;
+const InformationTabsWrapper = styled.div`
+  @media ${mediaQuery("md")} {
+    ${tw`mx-auto`}
+    max-width: 517px;
+  }
+`;
 
 const InformationHeader = styled.div`
   ${tw`grid grid-cols-3 gap-x-5 mt-8`}
+
+  @media ${mediaQuery("md")} {
+    ${tw`gap-x-8 mb-20`}
+  }
 `;
 
 const InformationBody = styled.div`
   ${tw`mt-8`}
+
+  @media ${mediaQuery("md")} {
+    ${tw`mx-auto`}
+    max-width: 412px;
+  }
 `;
 
 const InformationTab = styled.div`
@@ -60,9 +81,13 @@ interface StyledTabButtonProps {
 }
 
 const StyledTabButton = styled.button<StyledTabButtonProps>`
-  ${tw`font-mont font-bold rounded-tl-3xl rounded-br-3xl text-xs py-2 px-6 bg-light text-dark border-dark transition-[background,color] ease-in-out`};
+  ${tw`font-mont font-bold rounded-tl-3xl rounded-br-3xl text-xs py-2 px-6 bg-light text-dark border-dark transition-[background,color] duration-300 ease-in-out`};
   border-width: 1px;
   ${({ selected }) => selected && tw`bg-dark text-light border-light`}
+
+  @media ${mediaQuery("md")} {
+    ${tw`text-lg`}
+  }
 `;
 
 const enum InformationTabs {
@@ -91,113 +116,115 @@ export const About = () => {
 
   return (
     <AboutWrapper>
-      <SectionTitle
-        title="about me"
-        quote="be yourself; everyone else is already taken."
-        author="Oscar Wild"
-        backgroundTitle="About Me"
-      />
-      <InformationTabsWrapper>
-        <InformationHeader>
-          <StyledTabButton
-            selected={isTabSelected(InformationTabs.About)}
-            onClick={() => {
-              selectTab(InformationTabs.About);
-            }}
-          >
-            about
-          </StyledTabButton>
-          <StyledTabButton
-            selected={isTabSelected(InformationTabs.Skills)}
-            onClick={() => selectTab(InformationTabs.Skills)}
-          >
-            skills
-          </StyledTabButton>
-          <StyledTabButton
-            selected={isTabSelected(InformationTabs.History)}
-            onClick={() => selectTab(InformationTabs.History)}
-          >
-            history
-          </StyledTabButton>
-        </InformationHeader>
-        <InformationBody>
-          {isTabSelected(InformationTabs.About) && (
-            <AboutMeTab>
-              <p>
-                Hello I’m Félix López a {getYearsOld(new Date(1998, 8, 15))}{" "}
-                years old creative developer based in Venezuela, I started in
-                web development in the middle of my university career and
-                quickly got hooked in the tech world and started working on my
-                own projects subsequently I started learning mobile development
-                and started working on freelance projects.
-              </p>
-              <p>
-                My passion is to develop quality websites and applications that
-                are adaptable, powerful, modern in style and visually
-                attractive. I'm self-taught, fast learner, and a true believer
-                that anything is possible with hard work, dedication, and
-                passion.
-              </p>
-            </AboutMeTab>
-          )}
-          {isTabSelected(InformationTabs.Skills) && (
-            <SkillsTab>
-              <ul>
-                <li>
-                  <p>
-                    <strong>Hard Skills:</strong> Throughout my career I have
-                    focused more on the frontend and have worked mainly with{" "}
-                    <strong>React</strong> and all the ecosystem associated with
-                    the framework such as:{" "}
-                    <strong>
-                      React Native, Redux, Redux-Saga, RNW, Nextjs, Graphql,
-                      Gatsby, Styled Components.
-                    </strong>
-                    <br></br>
-                    However I have also worked on several backend projects
-                    developing REST API with <strong>Node</strong> and{" "}
-                    <strong>Express</strong> using varius databases such as{" "}
-                    <strong>PostgreSQL, Mongodb, MySQL and Firebase.</strong>
-                  </p>
-                </li>
-                <li>
-                  <strong>Soft Skills:</strong> Adaptability, Time Management
-                  and Communication are qualities that I apply when working on
-                  any project, that, along with my Creativity has been
-                  successful in solving problems.
-                </li>
-              </ul>
-            </SkillsTab>
-          )}
-          {isTabSelected(InformationTabs.History) && (
-            <HistoryTab>
-              <p>
-                <strong>Work History:</strong>
+      <AboutContainer>
+        <SectionTitle
+          title="about me"
+          quote="be yourself; everyone else is already taken."
+          author="Oscar Wild"
+          backgroundTitle="About Me"
+        />
+        <InformationTabsWrapper>
+          <InformationHeader>
+            <StyledTabButton
+              selected={isTabSelected(InformationTabs.About)}
+              onClick={() => {
+                selectTab(InformationTabs.About);
+              }}
+            >
+              about
+            </StyledTabButton>
+            <StyledTabButton
+              selected={isTabSelected(InformationTabs.Skills)}
+              onClick={() => selectTab(InformationTabs.Skills)}
+            >
+              skills
+            </StyledTabButton>
+            <StyledTabButton
+              selected={isTabSelected(InformationTabs.History)}
+              onClick={() => selectTab(InformationTabs.History)}
+            >
+              history
+            </StyledTabButton>
+          </InformationHeader>
+          <InformationBody>
+            {isTabSelected(InformationTabs.About) && (
+              <AboutMeTab>
+                <p>
+                  Hello I’m Félix López a {getYearsOld(new Date(1998, 8, 15))}{" "}
+                  years old creative developer based in Venezuela, I started in
+                  web development in the middle of my university career and
+                  quickly got hooked in the tech world and started working on my
+                  own projects subsequently I started learning mobile
+                  development and started working on freelance projects.
+                </p>
+                <p>
+                  My passion is to develop quality websites and applications
+                  that are adaptable, powerful, modern in style and visually
+                  attractive. I'm self-taught, fast learner, and a true believer
+                  that anything is possible with hard work, dedication, and
+                  passion.
+                </p>
+              </AboutMeTab>
+            )}
+            {isTabSelected(InformationTabs.Skills) && (
+              <SkillsTab>
                 <ul>
                   <li>
-                    Oct 2019 - Feb 2020 FUNDAUC - Web development fundamentals
-                    instructor.
+                    <p>
+                      <strong>Hard Skills:</strong> Throughout my career I have
+                      focused more on the frontend and have worked mainly with{" "}
+                      <strong>React</strong> and all the ecosystem associated
+                      with the framework such as:{" "}
+                      <strong>
+                        React Native, Redux, Redux-Saga, RNW, Nextjs, Graphql,
+                        Gatsby, Styled Components.
+                      </strong>
+                      <br></br>
+                      However I have also worked on several backend projects
+                      developing REST API with <strong>Node</strong> and{" "}
+                      <strong>Express</strong> using varius databases such as{" "}
+                      <strong>PostgreSQL, Mongodb, MySQL and Firebase.</strong>
+                    </p>
                   </li>
                   <li>
-                    Jul 2020 - Jun 2021 - Fourthwall - Shopify Themes Developer
-                    (upwork contract)
-                  </li>
-                  <li>
-                    Jun 2021 - Sep 2022 - Carterhaugh LLC - Junior React
-                    Developer (upwork contract).
+                    <strong>Soft Skills:</strong> Adaptability, Time Management
+                    and Communication are qualities that I apply when working on
+                    any project, that, along with my Creativity has been
+                    successful in solving problems.
                   </li>
                 </ul>
-              </p>
-              <p>
-                <strong>Education:</strong>
-                <ul>
-                  <li>UCAB - Informatics Engineer - 2023</li>
-                </ul>
-              </p>
-            </HistoryTab>
-          )}
-        </InformationBody>
-      </InformationTabsWrapper>
+              </SkillsTab>
+            )}
+            {isTabSelected(InformationTabs.History) && (
+              <HistoryTab>
+                <p>
+                  <strong>Work History:</strong>
+                  <ul>
+                    <li>
+                      Oct 2019 - Feb 2020 FUNDAUC - Web development fundamentals
+                      instructor.
+                    </li>
+                    <li>
+                      Jul 2020 - Jun 2021 - Fourthwall - Shopify Themes
+                      Developer (upwork contract).
+                    </li>
+                    <li>
+                      Jun 2021 - Sep 2022 - Carterhaugh LLC - Junior React
+                      Developer (upwork contract).
+                    </li>
+                  </ul>
+                </p>
+                <p>
+                  <strong>Education:</strong>
+                  <ul>
+                    <li>UCAB - Informatics Engineer - 2023</li>
+                  </ul>
+                </p>
+              </HistoryTab>
+            )}
+          </InformationBody>
+        </InformationTabsWrapper>
+      </AboutContainer>
     </AboutWrapper>
   );
 };

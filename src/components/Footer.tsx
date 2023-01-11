@@ -4,7 +4,7 @@ import tw from "twin.macro";
 import { GradientTextColorClases } from "../styles/globalTwinClasses";
 
 const FooterWrapper = styled.footer`
-  ${tw`container flex flex-col items-center`}
+  ${tw`container mx-auto flex flex-col items-center`}
 `;
 
 const MadeWithLoveFooter = styled.span`
@@ -19,7 +19,7 @@ export const Footer = () => {
   return (
     <FooterWrapper>
       <MadeWithLoveFooter>
-        Made with <strong>♥</strong> by Félix López &copy;{" "}
+        made with <strong>♥</strong> by Félix López &copy;{" "}
         {new Date().getFullYear()}
       </MadeWithLoveFooter>
     </FooterWrapper>

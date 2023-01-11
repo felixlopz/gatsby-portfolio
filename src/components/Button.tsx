@@ -7,7 +7,7 @@ type ButtonProps = DetailedHTMLProps<
   color?: keyof typeof colorClassNames;
 };
 
-const baseClassNames = `text-base font-mont font-bold rounded-tl-3xl rounded-br-3xl py-3 px-8`;
+const baseClassNames = `text-base font-mont font-bold rounded-tl-3xl rounded-br-3xl py-3 px-8 hover:opacity-80 transition-[opacity] md:text-lg`;
 
 const colorClassNames = {
   primary: `bg-gradient-to-r from-primary to-secondary text-light`,

@@ -1,6 +1,7 @@
 import React, { DetailedHTMLProps } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
+import { mediaQuery } from "../styles";
 import {
   DarkBackgroundColorClasses,
   DarkTextColorClasses,
@@ -8,16 +9,36 @@ import {
   LightTextColorClasses,
 } from "../styles/globalTwinClasses";
 
+const SectionTitleWrapper = styled.div`
+  ${tw`flex flex-col mt-24 mb-12 relative`}
+  z-index: -1;
+
+  @media ${mediaQuery("md")} {
+    ${tw`mt-32 mb-20`}
+  }
+`;
+
 const StyledSectionTitle = styled.h2`
   ${tw`font-extrabold font-mont text-center`}
   font-size: 1.75rem;
   line-height: 2.5rem;
   ${GradientTextColorClases}
+
+  @media ${mediaQuery("md")} {
+    ${tw`text-4xl`}
+  }
+`;
+
+const SectionQuoteWrapper = styled.div`
+  ${tw`inline self-center flex flex-col items-center justify-center`}
 `;
 
 const SectionQuote = styled.blockquote`
   ${DarkTextColorClasses}
-  ${tw`font-semibold font-mont italic text-center text-sm mt-2`}
+  ${tw`font-semibold font-mont italic text-center text-sm mt-2 inline`}
+  @media ${mediaQuery("md")} {
+    ${tw`text-lg`}
+  }
 `;
 
 const SectionAuthor = styled.span`
@@ -31,6 +52,10 @@ const SectionAuthor = styled.span`
     width: 1rem;
     height: 0.06rem;
   }
+
+  @media ${mediaQuery("md")} {
+    ${tw`text-sm`}
+  }
 `;
 
 const SectionBackgroundTitle = styled.span`
@@ -40,11 +65,10 @@ const SectionBackgroundTitle = styled.span`
   transform: translate(-50%, -30%);
   font-size: 5rem;
   z-index: -1;
-`;
 
-const SectionTitleWrapper = styled.div`
-  ${tw`flex flex-col mt-24 mb-12 relative`}
-  z-index: -1;
+  @media ${mediaQuery("md")} {
+    font-size: 300px;
+  }
 `;
 
 interface SectionTitleProps {
@@ -70,10 +94,10 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
       )}
       <StyledSectionTitle>{title || children}</StyledSectionTitle>
       {quote && author && (
-        <>
+        <SectionQuoteWrapper>
           <SectionQuote>{`"${quote}"`}</SectionQuote>
           <SectionAuthor>{author}</SectionAuthor>
-        </>
+        </SectionQuoteWrapper>
       )}
     </SectionTitleWrapper>
   );

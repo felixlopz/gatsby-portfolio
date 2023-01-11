@@ -10,7 +10,7 @@ import {
 } from "../styles/themeMode";
 
 const Wrapper = styled.div`
-  ${tw`flex items-center justify-center`}
+  ${tw`flex items-center justify-center cursor-pointer`}
   width: 20px;
   height: 40px;
 `;

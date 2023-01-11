@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faFigma } from "@fortawesome/free-brands-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { GradientTextColorClases } from "../styles/globalTwinClasses";
+import { mediaQuery } from "../styles";
 
 export interface Project {
   type: "development" | "design";
@@ -17,8 +18,13 @@ export interface Project {
   sourceCode?: string;
 }
 
-const Wrapper = styled.div`
+const ThumbnailWrapper = styled.div`
   ${tw``}
+
+  @media ${mediaQuery("md")} {
+    ${tw`basis-1/2 grow`}
+    max-width: 482px;
+  }
 `;
 
 const Thumbnail = styled.div`
@@ -29,10 +35,16 @@ const Thumbnail = styled.div`
 
 const Information = styled.div`
   ${tw`mt-6`}
+  @media ${mediaQuery("md")} {
+    ${tw`basis-1/2 mt-0`}
+  }
 `;
 
 const TitleWrapper = styled.div`
   ${tw`mb-1 flex items-center justify-between`}
+
+  @media ${mediaQuery("md")} {
+  }
 `;
 
 const Title = styled.h3`
@@ -64,6 +76,27 @@ const StyledFontAwesome = styled(FontAwesomeIcon)`
   height: 20px;
 `;
 
+const Wrapper = styled.div`
+  ${tw``}
+  @media ${mediaQuery("md")} {
+    ${tw`flex items-start gap-x-12`}
+
+    &:nth-child(even) {
+      ${tw`flex-row-reverse`}
+    }
+
+    &:nth-child(odd) {
+      ${Information} {
+        ${tw`flex flex-col justify-end items-end`}
+      }
+
+      ${Description} {
+        ${tw`text-right`}
+      }
+    }
+  }
+`;
+
 export const ProjectItem: React.FC<Project> = ({
   title,
   id,
@@ -76,7 +109,9 @@ export const ProjectItem: React.FC<Project> = ({
 }) => {
   return (
     <Wrapper>
-      <Thumbnail></Thumbnail>
+      <ThumbnailWrapper>
+        <Thumbnail></Thumbnail>
+      </ThumbnailWrapper>
       <Information>
         <TitleWrapper>
           <Title>{title}</Title>

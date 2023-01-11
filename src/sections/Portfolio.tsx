@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Project, ProjectItem, SectionTitle } from "../components";
+import { mediaQuery } from "../styles";
 
 const data: Array<Project> = [
   {
@@ -55,11 +56,19 @@ const data: Array<Project> = [
 ];
 
 const PortfolioWrapper = styled.section`
-  ${tw`container`}
+  ${tw`container mx-auto`}
+
+  @media ${mediaQuery("lg")} {
+    max-width: 1280px;
+  }
 `;
 
 const Projects = styled.div`
   ${tw`grid grid-cols-1 gap-y-20`}
+
+  @media ${mediaQuery("md")} {
+    ${tw`gap-y-32`}
+  }
 `;
 
 export const Portfolio = () => {

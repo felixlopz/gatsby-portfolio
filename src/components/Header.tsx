@@ -15,6 +15,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import ThemeSwitcher from "./ThemeSwitcher";
+import { mediaQuery } from "../styles";
 
 const LogoWrapper = styled.div`
   ${DarkTextColorClasses}
@@ -24,13 +25,17 @@ const LogoWrapper = styled.div`
 
   max-width: 60px;
 
-  transition: max-width 0.3s ease-in;
   transition: all 0.3s ease-in;
 
   svg {
     width: 100%;
     height: 100%;
     fill: currentColor;
+  }
+
+  @media ${mediaQuery("md")} {
+    ${tw`static`}
+    max-width: 42px;
   }
 `;
 
@@ -75,7 +80,7 @@ const MenuIcon = styled.div<{ open: boolean }>`
 const MobileNavigationWrapper = styled.div<{ open: boolean }>`
   ${LightBackgroundColorClasses}
 
-  ${tw`absolute top-0 left-0 w-screen h-screen z-40 flex flex-col items-center justify-center py-20`}
+  ${tw`absolute top-0 left-0 w-screen h-screen z-40 flex flex-col items-center justify-center py-20 md:hidden`}
   transition: all 0.4s ease;
   opacity: ${(props) => (props.open ? 1 : 0)};
   transform: ${(props) => (props.open ? "translateY(0)" : "translateY(-100%)")};
@@ -85,10 +90,18 @@ const NavList = styled.ul<{ open: boolean }>`
   ${tw`w-full flex items-center flex-col flex-nowrap list-none`}
   opacity: ${(props) => (props.open ? 1 : 0)};
   transition: ${(props) => (props.open ? "opacity 0.3s 0.35s ease" : "")};
+
+  @media ${mediaQuery("md")} {
+    ${tw`opacity-100 flex-row gap-x-24 justify-center`}
+  }
 `;
 const NavLink = styled.li`
   ${DarkTextColorClasses}
   ${tw`font-mont font-bold text-3xl uppercase my-4`}
+
+  @media ${mediaQuery("md")} {
+    ${tw`text-lg font-light capitalize cursor-pointer hover:opacity-50 transition-[opacity]`}
+  }
 `;
 
 const SocialIconsWrapper = styled.ul<{ open: boolean }>`
@@ -112,6 +125,10 @@ const ThemeSwitcherWrapper = styled.div<{ open: boolean }>`
   opacity: ${(props) => (props.open ? 1 : 0)};
   pointer-events: ${(props) => (props.open ? "all" : "none")};
   margin-left: 20px;
+
+  @media ${mediaQuery("md")} {
+    ${tw`visible opacity-100 pointer-events-auto ml-0 mr-6`}
+  }
 `;
 
 const MobileNavigationBalancer = styled.div`
@@ -121,19 +138,15 @@ const MobileNavigationBalancer = styled.div`
 
 const HeaderWrapper = styled.header<{ scrolled: boolean }>`
   ${LightBackgroundColorClasses}
-
-  ${tw`fixed w-full container top-0`}
-
+  ${tw`fixed w-full mx-auto top-0`}
   height: ${(props) => (props.scrolled ? "80px" : "163px")};
-
   padding-top: ${(props) => (props.scrolled ? "10px" : "32px")};
   padding-bottom: ${(props) => (props.scrolled ? "10px" : "32px")};
-
   justify-content: ${(props) => (props.scrolled ? "space-between" : "center")};
 
   ${LogoWrapper} {
     max-width: ${(props) => (props.scrolled ? "30px" : "60px")};
-    left: ${(props) => (props.scrolled ? "0px" : "")};
+    left: ${(props) => (props.scrolled ? "25px" : "")};
     transform: ${(props) => (props.scrolled ? "translate(0, -50%)" : "")};
   }
 
@@ -144,11 +157,22 @@ const HeaderWrapper = styled.header<{ scrolled: boolean }>`
     margin-left: auto;
   }
 
-  transition: height 0.2s ease-in;
+  @media ${mediaQuery("md")} {
+    height: 80px;
+
+    ${LogoWrapper} {
+      max-width: 32px;
+      transform: none;
+    }
+
+    ${MenuIconWrapper} {
+      ${tw`hidden`}
+    }
+  }
 `;
 
 const HeaderContainer = styled.div`
-  ${tw`w-full h-full relative flex items-center`}
+  ${tw`w-full h-full relative flex items-center container mx-auto`}
 `;
 
 export const Header = () => {
@@ -195,6 +219,11 @@ export const Header = () => {
             />
           </LogoSvg>
         </LogoWrapper>
+        <NavList open={mobileMenuOpen} className="hidden md:flex">
+          <NavLink>Works</NavLink>
+          <NavLink>About</NavLink>
+          <NavLink>Contact</NavLink>
+        </NavList>
         <ThemeSwitcherWrapper open={mobileMenuOpen}>
           <ThemeSwitcher />
         </ThemeSwitcherWrapper>
