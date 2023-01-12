@@ -42,7 +42,7 @@ const LogoWrapper = styled.div`
 const LogoSvg = styled.svg``;
 
 const MenuIconWrapper = styled.div`
-  ${tw`relative flex justify-center items-center z-50 cursor-pointer ml-auto`}
+  ${tw`relative flex justify-center items-center z-40 cursor-pointer ml-auto`}
   width: 25px;
   height: 30px;
 `;
@@ -80,7 +80,7 @@ const MenuIcon = styled.div<{ open: boolean }>`
 const MobileNavigationWrapper = styled.div<{ open: boolean }>`
   ${LightBackgroundColorClasses}
 
-  ${tw`absolute top-0 left-0 w-screen h-screen z-40 flex flex-col items-center justify-center py-20 md:hidden`}
+  ${tw`absolute top-0 left-0 w-screen h-screen z-30 flex flex-col items-center justify-center py-20 md:hidden`}
   transition: all 0.4s ease;
   opacity: ${(props) => (props.open ? 1 : 0)};
   transform: ${(props) => (props.open ? "translateY(0)" : "translateY(-100%)")};
@@ -138,7 +138,7 @@ const MobileNavigationBalancer = styled.div`
 
 const HeaderWrapper = styled.header<{ scrolled: boolean }>`
   ${LightBackgroundColorClasses}
-  ${tw`fixed w-full mx-auto top-0`}
+  ${tw`fixed w-full mx-auto top-0 z-50`}
   height: ${(props) => (props.scrolled ? "80px" : "163px")};
   padding-top: ${(props) => (props.scrolled ? "10px" : "32px")};
   padding-bottom: ${(props) => (props.scrolled ? "10px" : "32px")};

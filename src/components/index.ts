@@ -5,3 +5,4 @@ export * from "./SectionTitle";
 export * from "./Project";
 export * from "./ThemeSwitcher";
 export * from "./HeroFigurine";
+export * from "./AboutFigurine";

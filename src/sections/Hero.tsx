@@ -12,6 +12,7 @@ const HeroWrapper = styled.section`
   ${tw`container mx-auto`}
   margin-top: 163px;
   height: calc(100vh - 163px - 6rem);
+  max-height: 750px;
 
   @media ${mediaQuery("md")} {
     ${tw`flex flex-row items-center`}

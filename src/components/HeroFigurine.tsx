@@ -6,7 +6,6 @@ const Wrapper = styled.div`
   ${tw`relative w-full flex mt-12`}
   max-width: 630px;
   padding-top: 100%;
-  z-index: -1;
 `;
 
 const Circle = styled.div`
@@ -48,6 +47,21 @@ const LeftTriangle = styled(Triangle)`
   &::before {
     clip-path: polygon(100% 0, 0 37%, 85% 100%);
   }
+
+  @keyframes hero-left-triangle-floating {
+    0% {
+      transform: translate(-10%, -10%);
+    }
+    50% {
+      transform: translate(-10%, calc(-10% - 15px));
+    }
+
+    10% {
+      transform: translate(-10%, -10%);
+    }
+  }
+
+  animation: hero-left-triangle-floating 8s ease-in-out infinite;
 `;
 
 const RightTriangle = styled(Triangle)`
@@ -58,6 +72,21 @@ const RightTriangle = styled(Triangle)`
   &::before {
     clip-path: polygon(100% 33%, 0 0, 16% 100%);
   }
+
+  @keyframes hero-right-triangle-floating {
+    0% {
+      transform: translate(5%, 5%);
+    }
+    50% {
+      transform: translate(5%, calc(5% + 15px));
+    }
+
+    10% {
+      transform: translate(5%, 5%);
+    }
+  }
+
+  animation: hero-right-triangle-floating 8s ease-in-out infinite;
 `;
 
 export const HeroFigurine = () => {

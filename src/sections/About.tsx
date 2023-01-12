@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { SectionTitle } from "../components";
+import { AboutFigurine, SectionTitle } from "../components";
 import { mediaQuery } from "../styles";
 
-const AboutWrapper = styled.section``;
+const AboutWrapper = styled.section`
+  ${tw`relative`}
+`;
 
 const AboutContainer = styled.div`
   ${tw`container mx-auto`}
@@ -31,7 +33,7 @@ const InformationHeader = styled.div`
 
 const InformationBody = styled.div`
   ${tw`mt-8`}
-
+  min-height: 400px;
   @media ${mediaQuery("md")} {
     ${tw`mx-auto`}
     max-width: 412px;
@@ -116,6 +118,7 @@ export const About = () => {
 
   return (
     <AboutWrapper>
+      <AboutFigurine />
       <AboutContainer>
         <SectionTitle
           title="about me"

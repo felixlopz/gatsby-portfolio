@@ -13,10 +13,10 @@ import {
   LightTextColorClasses,
 } from "../styles/globalTwinClasses";
 import { mediaQuery } from "../styles";
+import { SectionBackgroundTitle } from "../components";
 
 const ContactWrapper = styled.section`
   ${tw`container flex flex-col items-center mx-auto relative mt-24`}
-  z-index: -1;
 
   @media ${mediaQuery("md")} {
     ${tw`flex-row justify-between mb-24 mt-32`}
@@ -88,19 +88,6 @@ const StyledSectionTitle = styled.h2`
 
   @media ${mediaQuery("md")} {
     ${tw`text-4xl text-left`}
-  }
-`;
-
-const SectionBackgroundTitle = styled.span`
-  ${LightTextColorClasses}
-  ${tw`font-mont uppercase font-extrabold absolute left-1/2 top-0 opacity-90 dark:opacity-50 w-max bg-gradient-to-b from-dark to-transparent bg-clip-text leading-none dark:from-light`}
-
-  transform: translate(-50%, -30%);
-  font-size: 5rem;
-  z-index: -1;
-
-  @media ${mediaQuery("md")} {
-    font-size: 300px;
   }
 `;
 
