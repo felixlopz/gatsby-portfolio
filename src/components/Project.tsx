@@ -31,7 +31,6 @@ const ThumbnailWrapper = styled.div`
 const Thumbnail = styled.div`
   ${tw`w-full relative`}
   padding-top: 56.25%;
-  background: pink;
 `;
 
 const StyledGatsbyImage = styled(GatsbyImage)`
