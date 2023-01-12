@@ -4,58 +4,7 @@ import tw from "twin.macro";
 import { Project, ProjectItem, SectionTitle } from "../components";
 import { mediaQuery } from "../styles";
 
-import { Element } from "react-scroll";
-
-const data: Array<Project> = [
-  {
-    id: 1,
-    title: "moviex",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu semper lacus. Etiam dapibus quis purus et iaculis. Nulla in aliquam ante, non scelerisque velit. Sed mattis augue massa, sed commodoi.",
-    technologies: ["react", "styled components", "tailwindcss"],
-    demo: "",
-    sourceCode: "",
-    thumbnail: "",
-    type: "development",
-  },
-  {
-    type: "development",
-    id: 2,
-    title: "coverz",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu semper lacus. Etiam dapibus quis purus et iaculis. Nulla in aliquam ante, non scelerisque velit. Sed mattis augue massa, sed commodoi.",
-    technologies: [
-      "react",
-      "styled components",
-      "tailwindcss",
-      "gatsby",
-      "twin macro",
-    ],
-    demo: "",
-    sourceCode: "",
-    thumbnail: "",
-  },
-  {
-    type: "development",
-    id: 3,
-    title: "repair shop",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu semper lacus. Etiam dapibus quis purus et iaculis. Nulla in aliquam ante, non scelerisque velit. Sed mattis augue massa, sed commodoi.",
-    technologies: ["html", "gulp", "sass", "bem"],
-    demo: "",
-    sourceCode: "",
-    thumbnail: "",
-  },
-  {
-    type: "design",
-    id: 4,
-    title: "Virtual Public",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu semper lacus. Etiam dapibus quis purus et iaculis. Nulla in aliquam ante, non scelerisque velit. Sed mattis augue massa, sed commodoi.",
-    demo: "",
-    thumbnail: "",
-  },
-];
+import { graphql, useStaticQuery } from "gatsby";
 
 const PortfolioWrapper = styled.section`
   ${tw`container mx-auto`}
@@ -74,6 +23,18 @@ const Projects = styled.div`
 `;
 
 export const Portfolio = () => {
+  const { allStrapiProject } = useStaticQuery(graphql`
+    query {
+      allStrapiProject {
+        nodes {
+          ...Project
+        }
+      }
+    }
+  `);
+
+  const projects: Array<Project> = allStrapiProject.nodes;
+
   return (
     <PortfolioWrapper id="portfolio">
       <SectionTitle
@@ -83,12 +44,33 @@ export const Portfolio = () => {
         author="Abraham Lincoln"
       />
       <Projects>
-        {data.map((project) => (
+        {projects.map((project) => (
           <ProjectItem {...project} key={project.id} />
         ))}
       </Projects>
     </PortfolioWrapper>
   );
 };
+
+export const query = graphql`
+  fragment Project on STRAPI_PROJECT {
+    id
+    description
+    demo
+    sourceCode
+    title
+    type
+    thumbnail {
+      localFile {
+        childImageSharp {
+          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+        }
+      }
+    }
+    technologies {
+      name
+    }
+  }
+`;
 
 export default Portfolio;

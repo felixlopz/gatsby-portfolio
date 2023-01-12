@@ -6,14 +6,15 @@ import { faGithub, faFigma } from "@fortawesome/free-brands-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { GradientTextColorClases } from "../styles/globalTwinClasses";
 import { mediaQuery } from "../styles";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 export interface Project {
   type: "development" | "design";
-  id: number;
+  id: string;
   title: string;
   description: string;
-  technologies?: Array<string>;
-  thumbnail: string;
+  technologies?: Array<{ name: string }>;
+  thumbnail: any;
   demo: string;
   sourceCode?: string;
 }
@@ -28,9 +29,13 @@ const ThumbnailWrapper = styled.div`
 `;
 
 const Thumbnail = styled.div`
-  ${tw`w-full h-0`}
+  ${tw`w-full relative`}
   padding-top: 56.25%;
   background: pink;
+`;
+
+const StyledGatsbyImage = styled(GatsbyImage)`
+  ${tw`absolute w-full h-full top-0 left-0`}
 `;
 
 const Information = styled.div`
@@ -97,13 +102,16 @@ const Wrapper = styled.div`
       ${Description} {
         ${tw`text-right`}
       }
+
+      ${TechnologiesWrapper} {
+        ${tw`flex-row-reverse`}
+      }
     }
   }
 `;
 
 export const ProjectItem: React.FC<Project> = ({
   title,
-  id,
   type,
   description,
   technologies,
@@ -111,11 +119,17 @@ export const ProjectItem: React.FC<Project> = ({
   demo,
   sourceCode,
 }) => {
+  const image: IGatsbyImageData | undefined = getImage(thumbnail.localFile);
+
   return (
     <Wrapper>
       <ThumbnailWrapper>
         <a href={demo} target="_blank" rel="noopener noreferrer">
-          <Thumbnail></Thumbnail>
+          <Thumbnail>
+            {image != null && (
+              <StyledGatsbyImage image={image} alt="thumbnail" />
+            )}
+          </Thumbnail>
         </a>
       </ThumbnailWrapper>
       <Information>
@@ -125,8 +139,8 @@ export const ProjectItem: React.FC<Project> = ({
         <Description>{description}</Description>
         {technologies && (
           <TechnologiesWrapper>
-            {technologies.map((tech) => (
-              <Technology>{tech}</Technology>
+            {technologies.map(({ name }) => (
+              <Technology>{name}</Technology>
             ))}
           </TechnologiesWrapper>
         )}
