@@ -17,6 +17,9 @@ import {
 import ThemeSwitcher from "./ThemeSwitcher";
 import { mediaQuery } from "../styles";
 
+import LogoIcon from "../images/logo.svg";
+import UpworkIcon from "../images/upwork.svg";
+
 const LogoWrapper = styled.div`
   ${DarkTextColorClasses}
   ${tw`absolute top-1/2 left-1/2`}
@@ -114,6 +117,11 @@ const SocialIcon = styled.li`
   ${DarkTextColorClasses}
 `;
 
+const IconWrapper = styled.svg`
+  width: 24px;
+  height: 24px;
+`;
+
 const StyledFontAwesome = styled(FontAwesomeIcon)`
   width: 24px;
   height: 24px;
@@ -199,24 +207,8 @@ export const Header = () => {
     <HeaderWrapper scrolled={isScrolled}>
       <HeaderContainer>
         <LogoWrapper>
-          <LogoSvg
-            viewBox="0 0 512 832"
-            width={512}
-            height={832}
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M85.9202 258.816L378.05 550.945L292.129 636.865L-0.00012207 344.736L85.9202 258.816Z"
-              fill="currentColor"
-            />
-            <path
-              d="M94.4269 0L512 417.573L426.079 503.493L8.50651 85.9204L94.4269 0Z"
-              fill="currentColor"
-            />
-            <path
-              d="M11.281 745.478L291.381 465.378L377.302 551.298L97.2013 831.398L11.281 745.478Z"
-              fill="currentColor"
-            />
+          <LogoSvg viewBox="0 0 512 832" width={512} height={832}>
+            <LogoIcon />
           </LogoSvg>
         </LogoWrapper>
         <NavList open={mobileMenuOpen} className="hidden md:flex">
@@ -244,13 +236,42 @@ export const Header = () => {
         </NavList>
         <SocialIconsWrapper open={mobileMenuOpen}>
           <SocialIcon>
-            <StyledFontAwesome icon={faGithub} />
+            <a
+              href={process.env.SOCIAL_GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <StyledFontAwesome icon={faGithub} />
+            </a>
           </SocialIcon>
           <SocialIcon>
-            <StyledFontAwesome icon={faInstagram} />
+            <a
+              href={process.env.SOCIAL_INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <StyledFontAwesome icon={faInstagram} />
+            </a>
           </SocialIcon>
           <SocialIcon>
-            <StyledFontAwesome icon={faLinkedin} />
+            <a
+              href={process.env.SOCIAL_LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <StyledFontAwesome icon={faLinkedin} />
+            </a>
+          </SocialIcon>
+          <SocialIcon>
+            <a
+              href={process.env.SOCIAL_UPWORK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconWrapper viewBox="0 0 54 39" width={54} height={39}>
+                <UpworkIcon />
+              </IconWrapper>
+            </a>
           </SocialIcon>
         </SocialIconsWrapper>
       </MobileNavigationWrapper>

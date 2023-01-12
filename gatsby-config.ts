@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
@@ -17,6 +20,14 @@ const config: GatsbyConfig = {
       options: {
         fonts: [`montserrat\:300,400,600,700,900, 600i`],
         display: "swap",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /images/,
+        },
       },
     },
   ],

@@ -10,10 +10,10 @@ import {
 import {
   DarkTextColorClasses,
   GradientTextColorClases,
-  LightTextColorClasses,
 } from "../styles/globalTwinClasses";
 import { mediaQuery } from "../styles";
 import { SectionBackgroundTitle } from "../components";
+import UpworkIcon from "../images/upwork.svg";
 
 const ContactWrapper = styled.section`
   ${tw`container flex flex-col items-center mx-auto relative mt-24`}
@@ -36,7 +36,7 @@ const InformationWrapper = styled.div`
 `;
 
 const EmailContact = styled.a`
-  ${tw`text-xl text-dark dark:text-light font-mont font-semibold my-8`}
+  ${tw`text-xl text-dark dark:text-light font-mont font-semibold my-8 hover:opacity-50 transition-[opacity]`}
 
   @media ${mediaQuery("md")} {
     ${tw`mt-4 mb-8`}
@@ -53,6 +53,12 @@ const SocialIconsWrapper = styled.ul`
 
 const SocialIcon = styled.li`
   ${DarkTextColorClasses}
+  ${tw`hover:opacity-50 transition-[opacity]`}
+`;
+
+const IconWrapper = styled.svg`
+  width: 24px;
+  height: 24px;
 `;
 
 const StyledFontAwesome = styled(FontAwesomeIcon)`
@@ -99,16 +105,47 @@ export const Contact = () => {
         <StyledSectionTitle>
           let's build something <br></br> <span>awesome together!</span>
         </StyledSectionTitle>
-        <EmailContact>hello@felixlopez.tech</EmailContact>
+        <EmailContact href={`mailto:${process.env.EMAIL_DIRECTION}`}>
+          {process.env.EMAIL_DIRECTION}
+        </EmailContact>
         <SocialIconsWrapper>
           <SocialIcon>
-            <StyledFontAwesome icon={faGithub} />
+            <a
+              href={process.env.SOCIAL_GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <StyledFontAwesome icon={faGithub} />
+            </a>
           </SocialIcon>
           <SocialIcon>
-            <StyledFontAwesome icon={faInstagram} />
+            <a
+              href={process.env.SOCIAL_INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <StyledFontAwesome icon={faInstagram} />
+            </a>
           </SocialIcon>
           <SocialIcon>
-            <StyledFontAwesome icon={faLinkedin} />
+            <a
+              href={process.env.SOCIAL_LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <StyledFontAwesome icon={faLinkedin} />
+            </a>
+          </SocialIcon>
+          <SocialIcon>
+            <a
+              href={process.env.SOCIAL_UPWORK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconWrapper viewBox="0 0 54 39" width={54} height={39}>
+                <UpworkIcon />
+              </IconWrapper>
+            </a>
           </SocialIcon>
         </SocialIconsWrapper>
       </InformationWrapper>

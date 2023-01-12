@@ -68,6 +68,10 @@ const Technology = styled.p`
 
 const LinksWrapper = styled.div`
   ${tw`flex gap-x-4 mt-6`}
+
+  a {
+    ${tw`hover:opacity-50 transition-[opacity]`}
+  }
 `;
 
 const StyledFontAwesome = styled(FontAwesomeIcon)`
@@ -110,7 +114,9 @@ export const ProjectItem: React.FC<Project> = ({
   return (
     <Wrapper>
       <ThumbnailWrapper>
-        <Thumbnail></Thumbnail>
+        <a href={demo} target="_blank" rel="noopener noreferrer">
+          <Thumbnail></Thumbnail>
+        </a>
       </ThumbnailWrapper>
       <Information>
         <TitleWrapper>
@@ -127,13 +133,17 @@ export const ProjectItem: React.FC<Project> = ({
         <LinksWrapper>
           {type === "development" ? (
             <>
-              <StyledFontAwesome icon={faGithub} />
-              <StyledFontAwesome icon={faLink} />
+              <a href={sourceCode} target="_blank" rel="noopener noreferrer">
+                <StyledFontAwesome icon={faGithub} />
+              </a>
+              <a href={demo} target="_blank" rel="noopener noreferrer">
+                <StyledFontAwesome icon={faLink} />
+              </a>
             </>
           ) : (
-            <>
+            <a href={demo} target="_blank" rel="noopener noreferrer">
               <StyledFontAwesome icon={faFigma} />
-            </>
+            </a>
           )}
         </LinksWrapper>
       </Information>
