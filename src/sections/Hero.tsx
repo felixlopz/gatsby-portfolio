@@ -72,8 +72,7 @@ const FigureWrapper = styled.div`
   ${tw`hidden`}
 
   @media ${mediaQuery("md")} {
-    ${tw`block basis-1/2 h-full bg-pink-500`}
-    height: 400px;
+    ${tw`block basis-1/2 h-full`}
   }
 `;
 
