@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Button, HeroFigurine } from "../components";
@@ -90,7 +91,15 @@ export const Hero = () => {
           projects.
         </SubTitle>
         <ButtonWrapper>
-          <StyledButton>my works</StyledButton>
+          <Link
+            to="portfolio"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-100}
+          >
+            <StyledButton>my works</StyledButton>
+          </Link>
         </ButtonWrapper>
       </InfoWrapper>
       <FigureWrapper>

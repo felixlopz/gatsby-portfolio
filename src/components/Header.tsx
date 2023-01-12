@@ -20,6 +20,8 @@ import { mediaQuery } from "../styles";
 import LogoIcon from "../images/logo.svg";
 import UpworkIcon from "../images/upwork.svg";
 
+import { Link } from "react-scroll";
+
 const LogoWrapper = styled.div`
   ${DarkTextColorClasses}
   ${tw`absolute top-1/2 left-1/2`}
@@ -183,6 +185,49 @@ const HeaderContainer = styled.div`
   ${tw`w-full h-full relative flex items-center container mx-auto`}
 `;
 
+const SectionLinks: React.FC<{ handleLinkClick?: () => void }> = (props) => {
+  const handleLinkClick = () => {
+    if (props.handleLinkClick != null) {
+      props.handleLinkClick();
+    }
+  };
+
+  return (
+    <>
+      <Link
+        to="portfolio"
+        spy={true}
+        smooth={true}
+        duration={500}
+        offset={-100}
+        onClick={() => handleLinkClick()}
+      >
+        <NavLink>Works</NavLink>
+      </Link>
+      <Link
+        to="about"
+        spy={true}
+        smooth={true}
+        duration={500}
+        offset={-100}
+        onClick={() => handleLinkClick()}
+      >
+        <NavLink>About</NavLink>
+      </Link>
+      <Link
+        to="contact"
+        spy={true}
+        smooth={true}
+        duration={500}
+        offset={-100}
+        onClick={() => handleLinkClick()}
+      >
+        <NavLink>Contact</NavLink>
+      </Link>
+    </>
+  );
+};
+
 export const Header = () => {
   const { offsetFromTop } = useScrollDirection();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -203,6 +248,10 @@ export const Header = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const onMobileSectionLinkClick = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
     <HeaderWrapper scrolled={isScrolled}>
       <HeaderContainer>
@@ -212,9 +261,7 @@ export const Header = () => {
           </LogoSvg>
         </LogoWrapper>
         <NavList open={mobileMenuOpen} className="hidden md:flex">
-          <NavLink>Works</NavLink>
-          <NavLink>About</NavLink>
-          <NavLink>Contact</NavLink>
+          <SectionLinks />
         </NavList>
         <ThemeSwitcherWrapper open={mobileMenuOpen}>
           <ThemeSwitcher />
@@ -230,9 +277,7 @@ export const Header = () => {
       <MobileNavigationWrapper open={mobileMenuOpen}>
         <MobileNavigationBalancer />
         <NavList open={mobileMenuOpen}>
-          <NavLink>Works</NavLink>
-          <NavLink>About</NavLink>
-          <NavLink>Contact</NavLink>
+          <SectionLinks handleLinkClick={onMobileSectionLinkClick} />
         </NavList>
         <SocialIconsWrapper open={mobileMenuOpen}>
           <SocialIcon>

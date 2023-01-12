@@ -4,6 +4,8 @@ import tw from "twin.macro";
 import { Project, ProjectItem, SectionTitle } from "../components";
 import { mediaQuery } from "../styles";
 
+import { Element } from "react-scroll";
+
 const data: Array<Project> = [
   {
     id: 1,
@@ -73,7 +75,7 @@ const Projects = styled.div`
 
 export const Portfolio = () => {
   return (
-    <PortfolioWrapper>
+    <PortfolioWrapper id="portfolio">
       <SectionTitle
         title="my works"
         backgroundTitle="portfolio"

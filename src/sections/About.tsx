@@ -117,7 +117,7 @@ export const About = () => {
   };
 
   return (
-    <AboutWrapper>
+    <AboutWrapper id="about">
       <AboutFigurine />
       <AboutContainer>
         <SectionTitle

@@ -99,7 +99,7 @@ const StyledSectionTitle = styled.h2`
 
 export const Contact = () => {
   return (
-    <ContactWrapper>
+    <ContactWrapper id="contact">
       <SectionBackgroundTitle>Contact</SectionBackgroundTitle>
       <InformationWrapper>
         <StyledSectionTitle>
