@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { useScrollDirection } from "../hooks/useScrollDirection";
+import { useScrollPosition, useWindowSize } from "../hooks";
 import {
   LightBackgroundColorClasses,
   DarkBackgroundColorClasses,
@@ -15,7 +15,10 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import ThemeSwitcher from "./ThemeSwitcher";
-import { mediaQuery } from "../styles";
+import {
+  getValueOfScreenMediaQueryFromThemeAsNumber,
+  mediaQuery,
+} from "../styles";
 
 import LogoIcon from "../images/logo.svg";
 import UpworkIcon from "../images/upwork.svg";
@@ -231,41 +234,71 @@ const SectionLinks: React.FC<{ handleLinkClick?: () => void }> = (props) => {
 };
 
 export const Header = () => {
-  const { offsetFromTop } = useScrollDirection();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const scrollPosition = useScrollPosition();
+  const { width: windowWidth } = useWindowSize();
+  const [isPageScrolled, setIsPageScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (offsetFromTop > 20) {
-      setIsScrolled(true);
+    if (scrollPosition > 20) {
+      setIsPageScrolled(true);
     } else {
-      setIsScrolled(false);
+      setIsPageScrolled(false);
     }
-  }, [offsetFromTop]);
+
+    if (windowWidth != null) {
+      closeMobileMenuIfScreenWidthIsDesktopView(windowWidth);
+    }
+  }, [scrollPosition, windowWidth]);
 
   const toggleMobileMenu = () => {
-    mobileMenuOpen === true
-      ? (document.body.style.overflow = "visible")
-      : (document.body.style.overflow = "hidden");
-    setMobileMenuOpen(!mobileMenuOpen);
+    if (isMobileMenuOpen === true) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
   };
 
-  const onMobileSectionLinkClick = () => {
-    setMobileMenuOpen(false);
+  const onMobileMenuSectionLinkClick = () => {
+    closeMobileMenu();
+  };
+
+  const closeMobileMenuIfScreenWidthIsDesktopView = (screenWidth: number) => {
+    const desktopViewWidth: number =
+      getValueOfScreenMediaQueryFromThemeAsNumber("md");
+
+    if (screenWidth >= desktopViewWidth && isMobileMenuOpen === true) {
+      closeMobileMenu();
+    }
+  };
+
+  const closeMobileMenu = () => {
+    setDocumentBodyOverflow("visible");
+    setIsMobileMenuOpen(false);
+  };
+
+  const openMobileMenu = () => {
+    setDocumentBodyOverflow("hidden");
+    setIsMobileMenuOpen(true);
+  };
+
+  // prevent scrolling when mobile menu is open
+  const setDocumentBodyOverflow = (value: "visible" | "hidden") => {
+    document.body.style.overflow = value;
   };
 
   return (
-    <HeaderWrapper scrolled={isScrolled}>
+    <HeaderWrapper scrolled={isPageScrolled}>
       <HeaderContainer>
         <LogoWrapper>
           <LogoSvg viewBox="0 0 512 832" width={512} height={832}>
             <LogoIcon />
           </LogoSvg>
         </LogoWrapper>
-        <NavList open={mobileMenuOpen} desktop={true}>
+        <NavList open={isMobileMenuOpen} desktop={true}>
           <SectionLinks />
         </NavList>
-        <ThemeSwitcherWrapper open={mobileMenuOpen}>
+        <ThemeSwitcherWrapper open={isMobileMenuOpen}>
           <ThemeSwitcher />
         </ThemeSwitcherWrapper>
         <MenuIconWrapper
@@ -273,15 +306,15 @@ export const Header = () => {
             toggleMobileMenu();
           }}
         >
-          <MenuIcon open={mobileMenuOpen}></MenuIcon>
+          <MenuIcon open={isMobileMenuOpen}></MenuIcon>
         </MenuIconWrapper>
       </HeaderContainer>
-      <MobileNavigationWrapper open={mobileMenuOpen}>
+      <MobileNavigationWrapper open={isMobileMenuOpen}>
         <MobileNavigationBalancer />
-        <NavList open={mobileMenuOpen}>
-          <SectionLinks handleLinkClick={onMobileSectionLinkClick} />
+        <NavList open={isMobileMenuOpen}>
+          <SectionLinks handleLinkClick={onMobileMenuSectionLinkClick} />
         </NavList>
-        <SocialIconsWrapper open={mobileMenuOpen}>
+        <SocialIconsWrapper open={isMobileMenuOpen}>
           <SocialIcon>
             <a
               href={process.env.SOCIAL_GITHUB_URL}
