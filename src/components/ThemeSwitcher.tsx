@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -37,9 +37,11 @@ const Icon = styled.div<{ toggle: boolean }>`
 `;
 
 export const ThemeSwitcher = () => {
-  const [themeDarkMode, setThemeDarkMode] = useState<boolean>(() => {
-    return isThemeDarkMode();
-  });
+  const [themeDarkMode, setThemeDarkMode] = useState<boolean>(false);
+
+  useEffect(() => {
+    setThemeDarkMode(isThemeDarkMode());
+  }, []);
 
   const switchTheme = () => {
     themeDarkMode === true ? setLightMode() : setDarkMode();

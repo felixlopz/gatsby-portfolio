@@ -3,6 +3,6 @@ const {
   checkPreferredColorSchemeAndSetThemeMode,
 } = require("./src/styles/themeMode.ts");
 
-exports.onInitialClientRender = () => {
+exports.onRouteUpdate = () => {
   checkPreferredColorSchemeAndSetThemeMode();
 };
