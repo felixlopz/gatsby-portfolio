@@ -20,7 +20,7 @@ export interface Project {
 }
 
 const ThumbnailWrapper = styled.div`
-  ${tw``}
+  ${tw`bg-gradient-to-b from-primary to-secondary shadow-md p-0.5 dark:shadow-[#FFFFFF40]`}
 
   @media ${mediaQuery("md")} {
     ${tw`basis-1/2 grow`}
