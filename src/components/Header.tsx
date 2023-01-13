@@ -91,10 +91,12 @@ const MobileNavigationWrapper = styled.div<{ open: boolean }>`
   transform: ${(props) => (props.open ? "translateY(0)" : "translateY(-100%)")};
 `;
 
-const NavList = styled.ul<{ open: boolean }>`
+const NavList = styled.ul<{ open: boolean; desktop?: boolean }>`
   ${tw`w-full flex items-center flex-col flex-nowrap list-none`}
   opacity: ${(props) => (props.open ? 1 : 0)};
   transition: ${(props) => (props.open ? "opacity 0.3s 0.35s ease" : "")};
+
+  ${({ desktop }) => desktop && tw`hidden md:flex`};
 
   @media ${mediaQuery("md")} {
     ${tw`opacity-100 flex-row gap-x-24 justify-center`}
@@ -260,7 +262,7 @@ export const Header = () => {
             <LogoIcon />
           </LogoSvg>
         </LogoWrapper>
-        <NavList open={mobileMenuOpen} className="hidden md:flex">
+        <NavList open={mobileMenuOpen} desktop={true}>
           <SectionLinks />
         </NavList>
         <ThemeSwitcherWrapper open={mobileMenuOpen}>

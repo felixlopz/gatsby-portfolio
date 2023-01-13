@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import tw from "twin.macro";
+import tw, { theme } from "twin.macro";
 
 const Wrapper = styled.div`
   ${tw`relative w-full flex mt-12`}
@@ -17,11 +17,14 @@ const Circle = styled.div`
 `;
 
 const InnerCircle = styled.div`
-  ${tw`absolute left-1/2 top-1/2 bg-dark outline-1 outline-light outline outline`}
+  ${tw`absolute left-1/2 top-1/2 bg-dark`}
   transform: translate(-50%, -50%);
   width: 6%;
   padding-bottom: 6%;
   border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  box-shadow: 0 0 0 1px ${theme("colors.light")};
 `;
 
 const Triangle = styled.div`

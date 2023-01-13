@@ -58,11 +58,19 @@ const SectionAuthor = styled.span`
 
 export const SectionBackgroundTitle = styled.span`
   ${LightTextColorClasses}
-  ${tw`font-mont uppercase font-extrabold absolute left-1/2 top-0 opacity-100 dark:opacity-50 w-max bg-gradient-to-b from-dark to-transparent bg-clip-text leading-none dark:from-light`}
-
+  ${tw`font-mont uppercase font-extrabold absolute left-1/2 top-0 w-max bg-gradient-to-b from-dark to-transparent bg-clip-text leading-none dark:from-light opacity-10`}
+  
+  -webkit-text-stroke: 3px transparent;
   transform: translate(-50%, -30%);
   font-size: 5rem;
   z-index: -1;
+
+  @-moz-document url-prefix() {
+    & {
+      ${tw`opacity-30`}
+    }
+  }
+
   @media ${mediaQuery("md")} {
     font-size: 300px;
   }
