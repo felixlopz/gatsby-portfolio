@@ -10,10 +10,10 @@ import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 export interface Project {
   type: "development" | "design";
-  id: string;
+  slug: string;
   title: string;
   description: string;
-  technologies?: Array<{ name: string }>;
+  technologies?: string;
   thumbnail: any;
   demo: string;
   sourceCode?: string;
@@ -118,7 +118,9 @@ export const ProjectItem: React.FC<Project> = ({
   demo,
   sourceCode,
 }) => {
-  const image: IGatsbyImageData | undefined = getImage(thumbnail.localFile);
+  console.log(thumbnail);
+
+  const image: IGatsbyImageData | undefined = getImage(thumbnail);
 
   return (
     <Wrapper>
@@ -138,7 +140,7 @@ export const ProjectItem: React.FC<Project> = ({
         <Description>{description}</Description>
         {technologies && (
           <TechnologiesWrapper>
-            {technologies.map(({ name }) => (
+            {technologies.split("-").map((name) => (
               <Technology>{name}</Technology>
             ))}
           </TechnologiesWrapper>

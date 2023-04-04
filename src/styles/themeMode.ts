@@ -6,8 +6,6 @@ export enum ThemeMode {
 export function checkPreferredColorSchemeAndSetThemeMode() {
   // TODO: change to be in pair with the actual theme of preference
 
-  console.log("this should be first");
-
   if (
     localStorage.theme === ThemeMode.Dark ||
     (!("theme" in localStorage) &&
@@ -34,7 +32,5 @@ export function getCurrentThemeMode(): ThemeMode {
 }
 
 export function isThemeDarkMode(): boolean {
-  console.log("Checking for dark mode");
-
   return localStorage.theme === ThemeMode.Dark;
 }

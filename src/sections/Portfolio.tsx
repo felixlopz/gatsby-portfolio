@@ -23,17 +23,35 @@ const Projects = styled.div`
 `;
 
 export const Portfolio = () => {
-  const { allStrapiProject } = useStaticQuery(graphql`
+  const { allMarkdownRemark } = useStaticQuery(graphql`
     query {
-      allStrapiProject {
-        nodes {
-          ...Project
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              code
+              demo
+              description
+              slug
+              technologies
+              title
+              type
+              image {
+                childImageSharp {
+                  gatsbyImageData(placeholder: BLURRED)
+                }
+              }
+            }
+          }
         }
       }
     }
   `);
 
-  const projects: Array<Project> = allStrapiProject.nodes;
+  const projects: Array<Project> = allMarkdownRemark.edges.map((node: any) => ({
+    ...node.node.frontmatter,
+    thumbnail: node.node.frontmatter.image,
+  }));
 
   return (
     <PortfolioWrapper id="portfolio">
@@ -44,9 +62,9 @@ export const Portfolio = () => {
         author="Abraham Lincoln"
       />
       <Projects>
-        {projects.map((project) => (
-          <ProjectItem {...project} key={project.id} />
-        ))}
+        {projects.map((project) => {
+          return <ProjectItem key={project.slug} {...project} />;
+        })}
       </Projects>
     </PortfolioWrapper>
   );

@@ -38,7 +38,7 @@ const Title = styled.h1`
   ${DarkTextColorClasses}
   ${tw`font-extrabold font-mont mb-6`}
   font-size: 1.75rem;
-  line-height: 2.5rem;
+  line-height: 2.8rem;
 
   span {
     ${GradientTextColorClases}
@@ -84,10 +84,10 @@ export const Hero = () => {
       <InfoWrapper>
         <Title>
           Hello <br></br>I’m Félix López <br></br>{" "}
-          <span>Creative Developer</span>
+          <span>Front-End Developer</span>
         </Title>
         <SubTitle>
-          4+ years of experience working on frontend and backend web/mobile
+          4+ years of experience working in design and frontend web/mobile
           projects.
         </SubTitle>
         <ButtonWrapper>
