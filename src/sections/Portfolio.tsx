@@ -70,25 +70,4 @@ export const Portfolio = () => {
   );
 };
 
-export const query = graphql`
-  fragment Project on STRAPI_PROJECT {
-    id
-    description
-    demo
-    sourceCode
-    title
-    type
-    thumbnail {
-      localFile {
-        childImageSharp {
-          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
-        }
-      }
-    }
-    technologies {
-      name
-    }
-  }
-`;
-
 export default Portfolio;
