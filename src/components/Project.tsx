@@ -34,7 +34,9 @@ const Thumbnail = styled.div`
 `;
 
 const StyledGatsbyImage = styled(GatsbyImage)`
-  ${tw`absolute w-full h-full top-0 left-0`}
+  ${tw`w-full h-full top-0 left-0`}
+
+  position: absolute !important;
 `;
 
 const Information = styled.div`
