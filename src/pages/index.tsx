@@ -26,5 +26,5 @@ const IndexPage: React.FC<PageProps> = () => {
 export default IndexPage;
 
 export const Head: HeadFC = () => (
-  <title>Félix López | Software Engineer</title>
+  <title>Félix López | Front-End Developer</title>
 );

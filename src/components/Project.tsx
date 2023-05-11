@@ -62,6 +62,10 @@ const Title = styled.h3`
 
 const Description = styled.p`
   ${tw`font-mont font-light text-base text-dark dark:text-light lowercase`}
+  @media ${mediaQuery("md")} {
+    font-size: 18px;
+    line-height: 24px;
+  }
 `;
 
 const TechnologiesWrapper = styled.div`
@@ -120,8 +124,6 @@ export const ProjectItem: React.FC<Project> = ({
   demo,
   sourceCode,
 }) => {
-  console.log(thumbnail);
-
   const image: IGatsbyImageData | undefined = getImage(thumbnail);
 
   return (

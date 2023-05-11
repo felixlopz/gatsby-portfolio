@@ -16,10 +16,6 @@ export const mediaQuery = (key: MediaQuery) => {
 export const getValueOfScreenMediaQueryFromThemeAsNumber = (
   key: MediaQuery
 ): number => {
-  // does not work dynamically for some reason, ERROR: The theme value doesn’t look right
-  // const themeKey: string = `screens.${key}`;
-
-  const valueOfMediaQueryFromTheme = theme`screens.md`;
-
+  const valueOfMediaQueryFromTheme = screens[key];
   return Number(valueOfMediaQueryFromTheme.toString().replace("px", ""));
 };

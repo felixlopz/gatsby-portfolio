@@ -6,6 +6,12 @@ import { mediaQuery } from "../styles";
 
 const AboutWrapper = styled.section`
   ${tw`relative`}
+  @media ${mediaQuery("md")} {
+    margin-top: 200px;
+  }
+  @media ${mediaQuery("lg")} {
+    margin-top: 300px;
+  }
 `;
 
 const AboutContainer = styled.div`
@@ -46,6 +52,11 @@ const InformationTab = styled.div`
   p {
     ${tw`mt-6`}
   }
+
+  @media ${mediaQuery("md")} {
+    font-size: 18px;
+    line-height: 26px;
+  }
 `;
 
 const AboutMeTab = styled(InformationTab)``;
@@ -60,7 +71,13 @@ const SkillsTab = styled(InformationTab)`
   }
 
   strong {
-    ${tw`font-semibold underline`}
+    ${tw`font-bold underline`}
+  }
+
+  @media ${mediaQuery("md")} {
+    li {
+      ${tw`mt-8`}
+    }
   }
 `;
 
@@ -183,8 +200,10 @@ export const About = () => {
                         Gatsby, Styled Components.
                       </strong>
                       <br></br>
+                      <br></br>
                       However I have also worked on several backend projects
-                      developing REST API with <strong>Node</strong> and{" "}
+                      developing REST API with technologies such as{" "}
+                      <strong>Node, Swagger</strong> and{" "}
                       <strong>Express</strong> using varius databases such as{" "}
                       <strong>PostgreSQL, Mongodb, MySQL and Firebase.</strong>
                     </p>

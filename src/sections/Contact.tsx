@@ -2,11 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithub,
-  faInstagram,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import {
   DarkTextColorClasses,
   GradientTextColorClases,
@@ -16,22 +12,24 @@ import { SectionBackgroundTitle } from "../components";
 import UpworkIcon from "../images/upwork.svg";
 
 const ContactWrapper = styled.section`
-  ${tw`container flex flex-col items-center mx-auto relative mt-24`}
+  ${tw`container flex flex-col items-center mx-auto relative`}
 
   @media ${mediaQuery("md")} {
-    ${tw`flex-row justify-between mb-24 mt-32`}
+    ${tw`flex-row justify-center mb-24 mt-32`}
+    margin-top: 200px;
   }
 
   @media ${mediaQuery("lg")} {
     max-width: 1280px;
+    margin-top: 300px;
   }
 `;
 
 const InformationWrapper = styled.div`
-  ${tw`flex flex-col items-center mx-auto`}
+  ${tw`flex flex-col items-center mx-auto mb-20`}
 
   @media ${mediaQuery("md")} {
-    ${tw`md:mx-0 items-start`}
+    ${tw`md:mx-0`}
   }
 `;
 
@@ -45,10 +43,6 @@ const EmailContact = styled.a`
 
 const SocialIconsWrapper = styled.ul`
   ${tw`w-full flex items-center justify-center gap-x-4 mt-auto`}
-
-  @media ${mediaQuery("md")} {
-    ${tw`justify-start`}
-  }
 `;
 
 const SocialIcon = styled.li`
@@ -120,15 +114,6 @@ export const Contact = () => {
           </SocialIcon>
           <SocialIcon>
             <a
-              href={process.env.SOCIAL_INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <StyledFontAwesome icon={faInstagram} />
-            </a>
-          </SocialIcon>
-          <SocialIcon>
-            <a
               href={process.env.SOCIAL_LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -149,9 +134,6 @@ export const Contact = () => {
           </SocialIcon>
         </SocialIconsWrapper>
       </InformationWrapper>
-      <PictureWrapper>
-        <ContactPicture></ContactPicture>
-      </PictureWrapper>
     </ContactWrapper>
   );
 };
