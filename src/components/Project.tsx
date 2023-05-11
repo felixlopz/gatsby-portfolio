@@ -16,7 +16,8 @@ export interface Project {
   technologies?: string;
   thumbnail: any;
   demo: string;
-  sourceCode?: string;
+  code?: string;
+  show: boolean;
 }
 
 const ThumbnailWrapper = styled.div`
@@ -122,7 +123,7 @@ export const ProjectItem: React.FC<Project> = ({
   technologies,
   thumbnail,
   demo,
-  sourceCode,
+  code,
 }) => {
   const image: IGatsbyImageData | undefined = getImage(thumbnail);
 
@@ -152,7 +153,7 @@ export const ProjectItem: React.FC<Project> = ({
         <LinksWrapper>
           {type === "development" ? (
             <>
-              <a href={sourceCode} target="_blank" rel="noopener noreferrer">
+              <a href={code} target="_blank" rel="noopener noreferrer">
                 <StyledFontAwesome icon={faGithub} />
               </a>
               <a href={demo} target="_blank" rel="noopener noreferrer">
