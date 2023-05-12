@@ -97,7 +97,7 @@ export const Contact = () => {
       <SectionBackgroundTitle>Contact</SectionBackgroundTitle>
       <InformationWrapper>
         <StyledSectionTitle>
-          let's build something <br></br> <span>awesome together!</span>
+          Let's build something <br></br> <span>awesome together!</span>
         </StyledSectionTitle>
         <EmailContact href={`mailto:${process.env.EMAIL_DIRECTION}`}>
           {process.env.EMAIL_DIRECTION}

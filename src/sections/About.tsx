@@ -138,7 +138,7 @@ export const About = () => {
       <AboutFigurine />
       <AboutContainer>
         <SectionTitle
-          title="about me"
+          title="About me"
           quote="be yourself; everyone else is already taken."
           author="Oscar Wild"
           backgroundTitle="About Me"

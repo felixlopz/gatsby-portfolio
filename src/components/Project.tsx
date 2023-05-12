@@ -55,7 +55,7 @@ const TitleWrapper = styled.div`
 `;
 
 const Title = styled.h3`
-  ${tw`font-extrabold font-mont inline lowercase`}
+  ${tw`font-extrabold font-mont inline lowercase capitalize`}
   font-size: 1.75rem;
   line-height: 2.5rem;
   ${GradientTextColorClases}
