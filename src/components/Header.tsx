@@ -317,7 +317,7 @@ export const Header = () => {
         <SocialIconsWrapper open={isMobileMenuOpen}>
           <SocialIcon>
             <a
-              href={process.env.REACT_APP_SOCIAL_GITHUB_URL}
+              href={process.env.GATSBY_SOCIAL_GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -326,7 +326,7 @@ export const Header = () => {
           </SocialIcon>
           <SocialIcon>
             <a
-              href={process.env.REACT_APP_SOCIAL_INSTAGRAM_URL}
+              href={process.env.GATSBY_SOCIAL_INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -335,7 +335,7 @@ export const Header = () => {
           </SocialIcon>
           <SocialIcon>
             <a
-              href={process.env.REACT_APP_SOCIAL_LINKEDIN_URL}
+              href={process.env.GATSBY_SOCIAL_LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -344,7 +344,7 @@ export const Header = () => {
           </SocialIcon>
           <SocialIcon>
             <a
-              href={process.env.REACT_APP_SOCIAL_UPWORK_URL}
+              href={process.env.GATSBY_SOCIAL_UPWORK_URL}
               target="_blank"
               rel="noopener noreferrer"
             >

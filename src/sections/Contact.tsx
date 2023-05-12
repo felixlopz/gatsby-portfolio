@@ -92,8 +92,6 @@ const StyledSectionTitle = styled.h2`
 `;
 
 export const Contact = () => {
-  console.log(process.env.REACT_APP_SOCIAL_GITHUB_URL);
-
   return (
     <ContactWrapper id="contact">
       <SectionBackgroundTitle>Contact</SectionBackgroundTitle>
@@ -101,13 +99,13 @@ export const Contact = () => {
         <StyledSectionTitle>
           Let's build something <br></br> <span>awesome together!</span>
         </StyledSectionTitle>
-        <EmailContact href={`mailto:${process.env.REACT_APP_EMAIL_DIRECTION}`}>
-          {process.env.REACT_APP_EMAIL_DIRECTION}
+        <EmailContact href={`mailto:${process.env.GATSBY_EMAIL_DIRECTION}`}>
+          {process.env.GATSBY_EMAIL_DIRECTION}
         </EmailContact>
         <SocialIconsWrapper>
           <SocialIcon>
             <a
-              href={process.env.REACT_APP_SOCIAL_GITHUB_URL}
+              href={process.env.GATSBY_SOCIAL_GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -116,7 +114,7 @@ export const Contact = () => {
           </SocialIcon>
           <SocialIcon>
             <a
-              href={process.env.REACT_APP_SOCIAL_LINKEDIN_URL}
+              href={process.env.GATSBY_SOCIAL_LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -125,7 +123,7 @@ export const Contact = () => {
           </SocialIcon>
           <SocialIcon>
             <a
-              href={process.env.REACT_APP_SOCIAL_UPWORK_URL}
+              href={process.env.GATSBY_SOCIAL_UPWORK_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
