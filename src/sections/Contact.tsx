@@ -92,6 +92,8 @@ const StyledSectionTitle = styled.h2`
 `;
 
 export const Contact = () => {
+  console.log(process.env.SOCIAL_GITHUB_URL);
+
   return (
     <ContactWrapper id="contact">
       <SectionBackgroundTitle>Contact</SectionBackgroundTitle>
