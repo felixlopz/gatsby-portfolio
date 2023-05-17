@@ -39,9 +39,10 @@ const InformationHeader = styled.div`
 
 const InformationBody = styled.div`
   ${tw`mt-8`}
-  min-height: 400px;
+  min-height: 500px;
   @media ${mediaQuery("md")} {
     ${tw`mx-auto`}
+    min-height: 600px;
     max-width: 412px;
   }
 `;

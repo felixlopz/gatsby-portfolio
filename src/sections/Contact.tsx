@@ -12,7 +12,7 @@ import { SectionBackgroundTitle } from "../components";
 import UpworkIcon from "../images/upwork.svg";
 
 const ContactWrapper = styled.section`
-  ${tw`container flex flex-col items-center mx-auto relative`}
+  ${tw`container flex flex-col items-center mx-auto relative mt-24`}
 
   @media ${mediaQuery("md")} {
     ${tw`flex-row justify-center mb-24 mt-32`}
