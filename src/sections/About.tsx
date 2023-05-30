@@ -197,8 +197,9 @@ export const About = () => {
                       <strong>React</strong> and all the ecosystem associated
                       with the framework such as:{" "}
                       <strong>
-                        React Native, Redux, Redux-Saga, RNW, Nextjs, Graphql,
-                        Gatsby, Styled Components.
+                        React Native, Redux, Redux Saga, Redux Toolkit, React
+                        Native Web, Nextjs, Graphql, Gatsby, Styled Components,
+                        etc.
                       </strong>
                       <br></br>
                       <br></br>
