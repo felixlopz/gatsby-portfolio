@@ -87,7 +87,7 @@ const StyledSectionTitle = styled.h2`
   }
 
   @media ${mediaQuery("md")} {
-    ${tw`text-4xl text-left`}
+    ${tw`text-4xl`}
   }
 `;
 
