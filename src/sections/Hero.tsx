@@ -79,6 +79,9 @@ const FigureWrapper = styled.div`
 `;
 
 export const Hero = () => {
+  const yearsOfExperience =
+    new Date().getFullYear() - new Date("10/01/2019").getFullYear() - 1;
+
   return (
     <HeroWrapper>
       <InfoWrapper>
@@ -87,8 +90,8 @@ export const Hero = () => {
           <span>Front-End Developer</span>
         </Title>
         <SubTitle>
-          4+ years of experience working in design and frontend web/mobile
-          projects.
+          {yearsOfExperience}+ years of experience working in design and
+          frontend web/mobile projects.
         </SubTitle>
         <ButtonWrapper>
           <Link
