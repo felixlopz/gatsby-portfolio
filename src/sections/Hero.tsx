@@ -91,7 +91,7 @@ export const Hero = () => {
         </Title>
         <SubTitle>
           {yearsOfExperience}+ years of experience working in design and
-          frontend web/mobile projects.
+          development of web/mobile projects.
         </SubTitle>
         <ButtonWrapper>
           <Link
