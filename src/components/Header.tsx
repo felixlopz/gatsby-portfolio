@@ -282,7 +282,6 @@ export const Header = () => {
     setIsMobileMenuOpen(true);
   };
 
-  // prevent scrolling when mobile menu is open
   const setDocumentBodyOverflow = (value: "visible" | "hidden") => {
     document.body.style.overflow = value;
   };
@@ -324,7 +323,7 @@ export const Header = () => {
               <StyledFontAwesome icon={faGithub} />
             </a>
           </SocialIcon>
-          <SocialIcon>
+          {/* <SocialIcon>
             <a
               href={process.env.GATSBY_SOCIAL_INSTAGRAM_URL}
               target="_blank"
@@ -332,7 +331,7 @@ export const Header = () => {
             >
               <StyledFontAwesome icon={faInstagram} />
             </a>
-          </SocialIcon>
+          </SocialIcon> */}
           <SocialIcon>
             <a
               href={process.env.GATSBY_SOCIAL_LINKEDIN_URL}
