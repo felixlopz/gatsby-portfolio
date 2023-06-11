@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faFigma } from "@fortawesome/free-brands-svg-icons";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { GradientTextColorClases } from "../styles/globalTwinClasses";
 import { mediaQuery } from "../styles";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import LinkIcon from "./LinkIcon";
+import { FaGithub, FaLink, FaFigma } from "react-icons/fa";
 
 export interface Project {
   type: "development" | "design";
@@ -77,18 +76,8 @@ const Technology = styled.p`
   ${tw`font-mont text-dark dark:text-light font-semibold text-lg min-w-fit lowercase`}
 `;
 
-const LinksWrapper = styled.div`
+const LinksWrapper = styled.ul`
   ${tw`flex gap-x-4 mt-6`}
-
-  a {
-    ${tw`hover:opacity-50 transition-[opacity]`}
-  }
-`;
-
-const StyledFontAwesome = styled(FontAwesomeIcon)`
-  ${tw`text-light dark:text-dark p-2 bg-dark dark:bg-light rounded-full`}
-  width: 20px;
-  height: 20px;
 `;
 
 const Wrapper = styled.div`
@@ -153,17 +142,11 @@ export const ProjectItem: React.FC<Project> = ({
         <LinksWrapper>
           {type === "development" ? (
             <>
-              <a href={code} target="_blank" rel="noopener noreferrer">
-                <StyledFontAwesome icon={faGithub} />
-              </a>
-              <a href={demo} target="_blank" rel="noopener noreferrer">
-                <StyledFontAwesome icon={faLink} />
-              </a>
+              <LinkIcon href={code} size={20} icon={FaGithub} rounded />
+              <LinkIcon href={demo} size={20} icon={FaLink} rounded />
             </>
           ) : (
-            <a href={demo} target="_blank" rel="noopener noreferrer">
-              <StyledFontAwesome icon={faFigma} />
-            </a>
+            <LinkIcon href={demo} size={20} icon={FaFigma} rounded />
           )}
         </LinksWrapper>
       </Information>

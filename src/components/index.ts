@@ -6,3 +6,4 @@ export * from "./Project";
 export * from "./ThemeSwitcher";
 export * from "./HeroFigurine";
 export * from "./AboutFigurine";
+export * from "./LinkIcon";

@@ -8,12 +8,6 @@ import {
   DarkTextColorClasses,
 } from "../styles/globalTwinClasses";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithub,
-  faInstagram,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
 import ThemeSwitcher from "./ThemeSwitcher";
 import {
   getValueOfScreenMediaQueryFromThemeAsNumber,
@@ -21,9 +15,11 @@ import {
 } from "../styles";
 
 import LogoIcon from "../images/logo.svg";
-import UpworkIcon from "../images/upwork.svg";
 
 import { Link } from "react-scroll";
+import LinkIcon from "./LinkIcon";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { SiUpwork } from "react-icons/si";
 
 const LogoWrapper = styled.div`
   ${DarkTextColorClasses}
@@ -118,20 +114,6 @@ const SocialIconsWrapper = styled.ul<{ open: boolean }>`
   ${tw`w-full flex items-center justify-center gap-x-4 mt-auto`}
   opacity: ${(props) => (props.open ? 1 : 0)};
   transition: ${(props) => (props.open ? "opacity 0.3s 0.35s ease" : "")};
-`;
-
-const SocialIcon = styled.li`
-  ${DarkTextColorClasses}
-`;
-
-const IconWrapper = styled.svg`
-  width: 24px;
-  height: 24px;
-`;
-
-const StyledFontAwesome = styled(FontAwesomeIcon)`
-  width: 24px;
-  height: 24px;
 `;
 
 const ThemeSwitcherWrapper = styled.div<{ open: boolean }>`
@@ -314,44 +296,22 @@ export const Header = () => {
           <SectionLinks handleLinkClick={onMobileMenuSectionLinkClick} />
         </NavList>
         <SocialIconsWrapper open={isMobileMenuOpen}>
-          <SocialIcon>
-            <a
-              href={process.env.GATSBY_SOCIAL_GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <StyledFontAwesome icon={faGithub} />
-            </a>
-          </SocialIcon>
-          {/* <SocialIcon>
-            <a
-              href={process.env.GATSBY_SOCIAL_INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <StyledFontAwesome icon={faInstagram} />
-            </a>
-          </SocialIcon> */}
-          <SocialIcon>
-            <a
-              href={process.env.GATSBY_SOCIAL_LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <StyledFontAwesome icon={faLinkedin} />
-            </a>
-          </SocialIcon>
-          <SocialIcon>
-            <a
-              href={process.env.GATSBY_SOCIAL_UPWORK_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <IconWrapper viewBox="0 0 54 39" width={54} height={39}>
-                <UpworkIcon />
-              </IconWrapper>
-            </a>
-          </SocialIcon>
+          <LinkIcon
+            href={process.env.GATSBY_SOCIAL_GITHUB_URL}
+            size={24}
+            icon={FaGithub}
+            rounded
+          />
+          <LinkIcon
+            href={process.env.GATSBY_SOCIAL_UPWORK_URL}
+            size={24}
+            icon={SiUpwork}
+          />
+          <LinkIcon
+            href={process.env.GATSBY_SOCIAL_LINKEDIN_URL}
+            size={24}
+            icon={FaLinkedinIn}
+          />
         </SocialIconsWrapper>
       </MobileNavigationWrapper>
     </HeaderWrapper>
