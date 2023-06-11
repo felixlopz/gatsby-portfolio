@@ -300,7 +300,6 @@ export const Header = () => {
             href={process.env.GATSBY_SOCIAL_GITHUB_URL}
             size={24}
             icon={FaGithub}
-            rounded
           />
           <LinkIcon
             href={process.env.GATSBY_SOCIAL_UPWORK_URL}
