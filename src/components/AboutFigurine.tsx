@@ -3,8 +3,9 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 const Wrapper = styled.div`
-  ${tw`hidden md:block absolute top-3/4`}
+  ${tw`hidden md:block absolute`}
   width: 100%;
+  top: 70%;
   max-width: 500px;
   max-height: 459px;
   height: 100%;

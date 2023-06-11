@@ -42,7 +42,7 @@ const InformationBody = styled.div`
   min-height: 500px;
   @media ${mediaQuery("md")} {
     ${tw`mx-auto`}
-    min-height: 600px;
+    min-height: 526px;
     max-width: 412px;
   }
 `;
@@ -101,8 +101,7 @@ interface StyledTabButtonProps {
 }
 
 const StyledTabButton = styled.button<StyledTabButtonProps>`
-  ${tw`font-mont font-bold rounded-tl-3xl rounded-br-3xl text-xs py-2 px-6 bg-light text-dark border-dark transition-[background,color] duration-300 ease-in-out`};
-  border-width: 1px;
+  ${tw`font-mont font-bold rounded-tl-3xl rounded-br-3xl text-xs py-2 px-6 bg-light text-dark border-dark transition-[background,color] duration-300 ease-in-out border`};
   ${({ selected }) => selected && tw`bg-dark text-light border-light`}
 
   @media ${mediaQuery("md")} {
