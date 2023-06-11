@@ -1,49 +1,62 @@
-import * as React from "react"
-import { Link, HeadFC, PageProps } from "gatsby"
+import * as React from "react";
+import { Link, HeadFC, PageProps } from "gatsby";
 
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+import styled from "styled-components";
+import tw from "twin.macro";
+import { Footer, HeroFigurine } from "../components";
+import { DarkTextColorClasses } from "../styles";
 
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+const Layout = styled.div`
+  ${tw`h-screen flex flex-col`}
+`;
+
+const Wrapper = styled.main`
+  ${tw`basis-full flex items-center`}
+`;
+
+const Container = styled.div`
+  ${tw`w-full mx-auto flex flex-row justify-between items-center`}
+  max-width: 50%;
+`;
+
+const FigurineWrapper = styled.div`
+  ${tw`basis-full`}
+  max-width: 630px;
+`;
+
+const Information = styled.div`
+  ${tw`text-center`}
+`;
+
+const NotFoundText = styled.h1`
+  ${DarkTextColorClasses}
+  ${tw`text-9xl font-mont font-extrabold`}
+`;
+
+const StyledLink = styled(Link)`
+  ${DarkTextColorClasses}
+  ${tw`font-mont`}
+`;
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
+    <Layout>
+      <Wrapper>
+        <Container>
+          <Information>
+            <NotFoundText>404</NotFoundText>
+            <StyledLink to="/">Go To Homepage</StyledLink>.
+          </Information>
+          <FigurineWrapper>
+            <HeroFigurine />
+          </FigurineWrapper>
+        </Container>
+      </Wrapper>
+      <Footer />
+    </Layout>
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;
 
-export const Head: HeadFC = () => <title>Not found</title>
+export const Head: HeadFC = () => <title>Félix López | Not Found</title>;
