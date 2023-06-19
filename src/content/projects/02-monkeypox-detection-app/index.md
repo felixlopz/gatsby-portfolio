@@ -7,5 +7,5 @@ technologies: "full stack-image classification-transfer learning-tensorflow-reac
 image: "thumbnail.png"
 demo: "https://monkeypox-detection-app.netlify.app"
 code: "https://github.com/felixlopz/monkeypox-detection-app"
-show: true
+position: 2
 ---

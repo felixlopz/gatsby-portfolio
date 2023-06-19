@@ -36,7 +36,6 @@ export const Portfolio = () => {
               technologies
               title
               type
-              show
               image {
                 childImageSharp {
                   gatsbyImageData(placeholder: BLURRED)
@@ -54,10 +53,6 @@ export const Portfolio = () => {
     thumbnail: node.node.frontmatter.image,
   }));
 
-  const displayableProjects = projects.filter(
-    (project) => project.show === true
-  );
-
   return (
     <PortfolioWrapper id="portfolio">
       <SectionTitle
@@ -67,7 +62,7 @@ export const Portfolio = () => {
         author="Abraham Lincoln"
       />
       <Projects>
-        {displayableProjects.map((project) => {
+        {projects.map((project) => {
           return <ProjectItem key={project.slug} {...project} />;
         })}
       </Projects>

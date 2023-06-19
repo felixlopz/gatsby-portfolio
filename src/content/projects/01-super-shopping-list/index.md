@@ -7,5 +7,5 @@ technologies: "full stack-node-react-mongodb-express-redux"
 image: "thumbnail.png"
 demo: "https://supershoppinglist.netlify.app/"
 code: "https://github.com/felixlopz/react-super-shopping-list"
-show: true
+position: 1
 ---

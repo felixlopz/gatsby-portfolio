@@ -16,7 +16,7 @@ export interface Project {
   thumbnail: any;
   demo: string;
   code?: string;
-  show: boolean;
+  position: number;
 }
 
 const ThumbnailWrapper = styled.div`
