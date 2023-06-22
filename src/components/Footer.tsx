@@ -19,7 +19,7 @@ export const Footer = () => {
   return (
     <FooterWrapper>
       <MadeWithLoveFooter>
-        made with <strong>♥</strong> by Félix López &copy;{" "}
+        developed and designed with <strong>♥</strong> by Félix López &copy;{" "}
         {new Date().getFullYear()}
       </MadeWithLoveFooter>
     </FooterWrapper>

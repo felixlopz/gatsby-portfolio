@@ -80,14 +80,14 @@ const FigureWrapper = styled.div`
 
 export const Hero = () => {
   const yearsOfExperience =
-    new Date().getFullYear() - new Date("10/01/2019").getFullYear() - 1;
+    new Date().getFullYear() - new Date("10/01/2019").getFullYear();
 
   return (
     <HeroWrapper>
       <InfoWrapper>
         <Title>
           Hello <br></br>I’m Félix López <br></br>{" "}
-          <span>Front-End Developer</span>
+          <span>Full-Stack Developer</span>
         </Title>
         <SubTitle>
           {yearsOfExperience}+ years of experience working in design and
