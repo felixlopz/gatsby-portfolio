@@ -3,7 +3,6 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { useScrollPosition, useWindowSize } from "../hooks";
 import {
-  LightBackgroundColorClasses,
   DarkBackgroundColorClasses,
   DarkTextColorClasses,
 } from "../styles/globalTwinClasses";
@@ -104,7 +103,7 @@ const NavLink = styled.li`
   ${tw`font-mont font-bold text-3xl uppercase my-4`}
 
   @media ${mediaQuery("md")} {
-    ${tw`text-lg font-light capitalize cursor-pointer hover:opacity-50 transition-[opacity]`}
+    ${tw`text-lg font-semibold capitalize cursor-pointer hover:opacity-70 transition-[opacity]`}
   }
 `;
 
