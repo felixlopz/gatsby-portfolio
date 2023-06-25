@@ -2,6 +2,8 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { About, Contact, Hero, Portfolio } from "../sections";
 import RootLayout from "../components/Layouts/RootLayout";
+import { SEO } from "../components/Seo";
+import useYearsOfExperience from "../hooks/useYearsOfExperience";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -16,6 +18,6 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => (
-  <title>Félix López | Full-Stack Developer</title>
-);
+export const Head: HeadFC = () => {
+  return <SEO />;
+};

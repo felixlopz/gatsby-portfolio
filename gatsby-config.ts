@@ -2,11 +2,17 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 import type { GatsbyConfig } from "gatsby";
+import useYearsOfExperience from "./src/hooks/useYearsOfExperience";
+
+const { yearsOfExperience } = useYearsOfExperience();
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `gatsby-portfolio`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Félix López | Full-Stack Developer`,
+    description: `Professional full-stack developer based in Venezuela with ${yearsOfExperience} years of experience working with React, Next, React Native and more!`,
+    twitterUsername: `@felixlopzd`,
+    image: `/src/images/site-thumbnail.png`,
+    siteUrl: `https://felixlopez.xyz`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin

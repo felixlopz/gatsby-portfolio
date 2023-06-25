@@ -3,6 +3,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { AboutFigurine, SectionTitle } from "../components";
 import { mediaQuery } from "../styles";
+import useYearsOld from "../hooks/useYearsOld";
 
 const AboutWrapper = styled.section`
   ${tw`relative`}
@@ -127,11 +128,7 @@ export const About = () => {
     setSelectedInformationTab(tab);
   };
 
-  const getYearsOld = (dob: Date) => {
-    const diff_ms = Date.now() - dob.getTime();
-    const age_dt = new Date(diff_ms);
-    return Math.abs(age_dt.getUTCFullYear() - 1970);
-  };
+  const { yearsOld } = useYearsOld();
 
   return (
     <AboutWrapper id="about">
@@ -170,12 +167,12 @@ export const About = () => {
             {isTabSelected(InformationTabs.About) && (
               <AboutMeTab>
                 <p>
-                  Hello I’m Félix López a {getYearsOld(new Date(1998, 8, 15))}{" "}
-                  years old creative developer based in Venezuela, I started in
-                  web development in the middle of my university career and
-                  quickly got hooked in the tech world and started working on my
-                  own projects subsequently I started learning mobile
-                  development and started working on freelance projects.
+                  Hello I’m Félix López a {yearsOld} years old creative
+                  developer based in Venezuela, I started in web development in
+                  the middle of my university career and quickly got hooked in
+                  the tech world and started working on my own projects
+                  subsequently I started learning mobile development and started
+                  working on freelance projects.
                 </p>
                 <p>
                   My passion is to develop quality websites and applications

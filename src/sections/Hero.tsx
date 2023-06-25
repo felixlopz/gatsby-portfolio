@@ -8,6 +8,7 @@ import {
   DarkTextColorClasses,
   GradientTextColorClases,
 } from "../styles/globalTwinClasses";
+import useYearsOfExperience from "../hooks/useYearsOfExperience";
 
 const HeroWrapper = styled.section`
   ${tw`container mx-auto`}
@@ -79,8 +80,7 @@ const FigureWrapper = styled.div`
 `;
 
 export const Hero = () => {
-  const yearsOfExperience =
-    new Date().getFullYear() - new Date("10/01/2019").getFullYear();
+  const { yearsOfExperience } = useYearsOfExperience();
 
   return (
     <HeroWrapper>
