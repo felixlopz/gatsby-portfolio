@@ -177,36 +177,45 @@ const SectionLinks: React.FC<{ handleLinkClick?: () => void }> = (props) => {
 
   return (
     <>
-      <Link
-        to="portfolio"
-        spy={true}
-        smooth={true}
-        duration={500}
-        offset={-100}
-        onClick={() => handleLinkClick()}
-      >
-        <NavLink>Works</NavLink>
-      </Link>
-      <Link
-        to="about"
-        spy={true}
-        smooth={true}
-        duration={500}
-        offset={-100}
-        onClick={() => handleLinkClick()}
-      >
-        <NavLink>About</NavLink>
-      </Link>
-      <Link
-        to="contact"
-        spy={true}
-        smooth={true}
-        duration={500}
-        offset={-100}
-        onClick={() => handleLinkClick()}
-      >
-        <NavLink>Contact</NavLink>
-      </Link>
+      <NavLink>
+        <Link
+          to="portfolio"
+          spy={true}
+          smooth={true}
+          duration={500}
+          offset={-100}
+          onClick={() => handleLinkClick()}
+          href="#works"
+        >
+          Works
+        </Link>
+      </NavLink>
+      <NavLink>
+        <Link
+          to="about"
+          spy={true}
+          smooth={true}
+          duration={500}
+          offset={-100}
+          onClick={() => handleLinkClick()}
+          href="#about"
+        >
+          About
+        </Link>
+      </NavLink>
+      <NavLink>
+        <Link
+          to="contact"
+          spy={true}
+          smooth={true}
+          duration={500}
+          offset={-100}
+          onClick={() => handleLinkClick()}
+          href="#contact"
+        >
+          Contact
+        </Link>
+      </NavLink>
     </>
   );
 };
@@ -293,16 +302,19 @@ export const Header = () => {
         </NavList>
         <SocialIconsWrapper open={isMobileMenuOpen}>
           <LinkIcon
+            label="github profile link"
             href={process.env.GATSBY_SOCIAL_GITHUB_URL}
             size={24}
             icon={FaGithub}
           />
           <LinkIcon
+            label="upwork profile link"
             href={process.env.GATSBY_SOCIAL_UPWORK_URL}
             size={24}
             icon={SiUpwork}
           />
           <LinkIcon
+            label="linkedin profile link"
             href={process.env.GATSBY_SOCIAL_LINKEDIN_URL}
             size={24}
             icon={FaLinkedinIn}

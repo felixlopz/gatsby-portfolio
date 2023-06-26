@@ -69,16 +69,19 @@ export const Contact = () => {
         </EmailContact>
         <SocialIconsWrapper>
           <LinkIcon
+            label="github profile link"
             href={process.env.GATSBY_SOCIAL_GITHUB_URL}
             size={24}
             icon={FaGithub}
           />
           <LinkIcon
+            label="upwork profile link"
             href={process.env.GATSBY_SOCIAL_UPWORK_URL}
             size={24}
             icon={SiUpwork}
           />
           <LinkIcon
+            label="linkedin profile link"
             href={process.env.GATSBY_SOCIAL_LINKEDIN_URL}
             size={24}
             icon={FaLinkedinIn}

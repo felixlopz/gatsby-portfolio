@@ -119,7 +119,12 @@ export const ProjectItem: React.FC<Project> = ({
   return (
     <Wrapper>
       <ThumbnailWrapper>
-        <a href={demo} target="_blank" rel="noopener noreferrer">
+        <a
+          aria-label={`${title} demo link`}
+          href={demo}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Thumbnail>
             {image != null && (
               <StyledGatsbyImage image={image} alt="thumbnail" />
@@ -142,11 +147,29 @@ export const ProjectItem: React.FC<Project> = ({
         <LinksWrapper>
           {type === "development" ? (
             <>
-              <LinkIcon href={code} size={20} icon={FaGithub} rounded />
-              <LinkIcon href={demo} size={20} icon={FaLink} rounded />
+              <LinkIcon
+                label={`${title} sourcecode link`}
+                href={code}
+                size={20}
+                icon={FaGithub}
+                rounded
+              />
+              <LinkIcon
+                label={`${title} demo link`}
+                href={demo}
+                size={20}
+                icon={FaLink}
+                rounded
+              />
             </>
           ) : (
-            <LinkIcon href={demo} size={20} icon={FaFigma} rounded />
+            <LinkIcon
+              label={`${title} design link`}
+              href={demo}
+              size={20}
+              icon={FaFigma}
+              rounded
+            />
           )}
         </LinksWrapper>
       </Information>

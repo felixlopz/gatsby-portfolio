@@ -100,6 +100,7 @@ export const Hero = () => {
             smooth={true}
             duration={500}
             offset={-100}
+            href="#works"
           >
             <StyledButton>my works</StyledButton>
           </Link>

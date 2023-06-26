@@ -2,17 +2,19 @@ import React from "react";
 import { IconType } from "react-icons";
 
 interface LinkIconProps {
-  href?: string;
   size: number;
   icon: IconType;
+  label: string;
+  href?: string;
   rounded?: boolean;
 }
 
 export const LinkIcon: React.FC<LinkIconProps> = ({
-  href,
   size = 24,
   icon: Icon,
   rounded,
+  href,
+  label,
 }) => {
   return (
     <li
@@ -26,7 +28,12 @@ export const LinkIcon: React.FC<LinkIconProps> = ({
     
     `}
     >
-      <a href={href} target="_blank" rel="noopener noreferrer">
+      <a
+        aria-label={label}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Icon size={size} />
       </a>
     </li>

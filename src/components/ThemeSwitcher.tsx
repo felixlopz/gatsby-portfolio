@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+
+import { HiSun, HiMoon } from "react-icons/hi";
+
 import {
   isThemeDarkMode,
   setDarkMode,
@@ -20,11 +21,6 @@ const Track = styled.div`
 
   width: 100%;
   height: 20%;
-`;
-
-const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  width: 16px;
-  height: 16px;
 `;
 
 const Icon = styled.div<{ toggle: boolean }>`
@@ -56,11 +52,7 @@ export const ThemeSwitcher = () => {
     <Wrapper onClick={() => handleSwitchClick()}>
       <Track>
         <Icon toggle={themeDarkMode === true}>
-          {themeDarkMode === false ? (
-            <StyledFontAwesomeIcon icon={faSun} />
-          ) : (
-            <StyledFontAwesomeIcon icon={faMoon} />
-          )}
+          {themeDarkMode === true ? <HiSun size={16} /> : <HiMoon size={16} />}
         </Icon>
       </Track>
     </Wrapper>
