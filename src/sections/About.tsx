@@ -221,16 +221,17 @@ export const About = () => {
                   <strong>Work History:</strong>
                   <ul>
                     <li>
-                      Oct 2019 - Feb 2020 FUNDAUC - Web development fundamentals
-                      instructor.
+                      Jun 2021 - Sep 2022 - Carterhaugh LLC - Junior React
+                      Developer (upwork contract).
                     </li>
+
                     <li>
                       Jul 2020 - Jun 2021 - Fourthwall - Shopify Themes
                       Developer (upwork contract).
                     </li>
                     <li>
-                      Jun 2021 - Sep 2022 - Carterhaugh LLC - Junior React
-                      Developer (upwork contract).
+                      Oct 2019 - Feb 2020 FUNDAUC - Web development fundamentals
+                      instructor.
                     </li>
                   </ul>
                 </p>
