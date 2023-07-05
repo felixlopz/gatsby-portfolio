@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { AboutFigurine, SectionTitle } from "../components";
+import { AboutFigurine, Button, SectionTitle } from "../components";
 import { mediaQuery } from "../styles";
 import useYearsOld from "../hooks/useYearsOld";
+import { graphql, useStaticQuery } from "gatsby";
 
 const AboutWrapper = styled.section`
   ${tw`relative`}
@@ -34,12 +35,12 @@ const InformationHeader = styled.div`
   ${tw`grid grid-cols-3 gap-x-5 mt-8`}
 
   @media ${mediaQuery("md")} {
-    ${tw`gap-x-8 mb-20`}
+    ${tw`gap-x-8 mb-8`}
   }
 `;
 
 const InformationBody = styled.div`
-  ${tw`mt-8`}
+  ${tw`mt-4 flex flex-col items-center`}
   min-height: 500px;
   @media ${mediaQuery("md")} {
     ${tw`mx-auto`}
@@ -117,6 +118,19 @@ const enum InformationTabs {
 }
 
 export const About = () => {
+  const { allFile } = useStaticQuery(graphql`
+    query {
+      allFile(filter: { ext: { eq: ".pdf" } }) {
+        nodes {
+          publicURL
+        }
+      }
+    }
+  `);
+
+  const { publicURL } = allFile.nodes[0];
+  console.log(publicURL);
+
   const [selectedInformationTab, setSelectedInformationTab] =
     useState<InformationTabs>(InformationTabs.Skills);
 
@@ -226,13 +240,10 @@ export const About = () => {
                     </li>
 
                     <li>
-                      Jul 2020 - Jun 2021 - Fourthwall - Shopify Themes
+                      Jul 2020 - May 2021 - Fourthwall - Shopify Themes
                       Developer (upwork contract).
                     </li>
-                    <li>
-                      Oct 2019 - Feb 2020 FUNDAUC - Web development fundamentals
-                      instructor.
-                    </li>
+                    <li>Oct 2019 - Feb 2020 Freelance</li>
                   </ul>
                 </p>
                 <p>
@@ -243,6 +254,11 @@ export const About = () => {
                 </p>
               </HistoryTab>
             )}
+            <Button className="text-xs mt-12" color="dark">
+              <a href={publicURL} download>
+                download curriculum
+              </a>
+            </Button>
           </InformationBody>
         </InformationTabsWrapper>
       </AboutContainer>
