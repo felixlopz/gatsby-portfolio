@@ -255,9 +255,7 @@ export const About = () => {
               </HistoryTab>
             )}
             <Button className="text-xs mt-12" color="dark">
-              <a href={publicURL} download>
-                download curriculum
-              </a>
+              <a href={publicURL}>curriculum</a>
             </Button>
           </InformationBody>
         </InformationTabsWrapper>
