@@ -1,5 +1,6 @@
 import React from "react";
 import { useSiteMetadata } from "../hooks/useSiteMetdata";
+import { graphql, useStaticQuery } from "gatsby";
 
 interface SEOProps {
   title?: string;
@@ -14,10 +15,23 @@ export const SEO: React.FC<SEOProps> = ({
   pathname,
   children,
 }) => {
+  const { allFile } = useStaticQuery(graphql`
+  query {
+    allFile(filter: {absolutePath: {regex: "/site-thumbnail\\.png/"}}) {
+      edges {
+        node {
+          publicURL
+        }
+      }
+    }
+  }
+`);
+
+  const imageURL = allFile.edges[0].node.publicURL;
+
   const {
     title: defaultTitle,
     description: defaultDescription,
-    image,
     siteUrl,
     twitterUsername,
   } = useSiteMetadata();
@@ -25,7 +39,7 @@ export const SEO: React.FC<SEOProps> = ({
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${siteUrl}${image}`,
+    image: `${siteUrl}${imageURL}`,
     url: `${siteUrl}${pathname || ``}`,
     twitterUsername,
   };

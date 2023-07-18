@@ -9,10 +9,13 @@ const { yearsOfExperience } = useYearsOfExperience();
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Félix López | Full-Stack Developer`,
-    description: `Professional full-stack developer based in Venezuela with ${yearsOfExperience} years of experience working with React, Next, React Native and more!`,
+    description: `Félix López is a full-stack developer based in Venezuela with ${yearsOfExperience} years of experience working with React, Next, React Native and more!`,
     twitterUsername: `@felixlopzd`,
     image: `/src/images/site-thumbnail.png`,
-    siteUrl: `https://felixlopez.xyz`,
+    siteUrl:
+      process.env.NODE_ENV === "production"
+        ? `https://felixlopez.xyz`
+        : `http://localhost:8000/`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -45,6 +48,13 @@ const config: GatsbyConfig = {
       options: {
         name: `projects`,
         path: `${__dirname}/src/content/projects`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `seo`,
+        path: `${__dirname}/src/content/seo`,
       },
     },
     {

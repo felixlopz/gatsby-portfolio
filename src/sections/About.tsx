@@ -129,7 +129,6 @@ export const About = () => {
   `);
 
   const { publicURL } = allFile.nodes[0];
-  console.log(publicURL);
 
   const [selectedInformationTab, setSelectedInformationTab] =
     useState<InformationTabs>(InformationTabs.Skills);
