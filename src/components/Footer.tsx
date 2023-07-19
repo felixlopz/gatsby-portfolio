@@ -19,8 +19,8 @@ export const Footer = () => {
   return (
     <FooterWrapper>
       <MadeWithLoveFooter>
-        developed and designed with <strong>♥</strong> by Félix López &copy;{" "}
-        {new Date().getFullYear()}
+        built with <strong>♥</strong> by Félix López &copy;{" "}
+        {new Date().getFullYear()}. Powered by Gatsby
       </MadeWithLoveFooter>
     </FooterWrapper>
   );

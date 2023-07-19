@@ -214,8 +214,8 @@ export const About = () => {
                       <br></br>
                       However I have also worked on several backend projects
                       developing REST API with technologies such as{" "}
-                      <strong>Node, Swagger</strong> and{" "}
-                      <strong>Express</strong> using varius databases such as{" "}
+                      <strong>Node and Exress</strong>, using varius databases
+                      such as{" "}
                       <strong>PostgreSQL, Mongodb, MySQL and Firebase.</strong>
                     </p>
                   </li>
@@ -254,7 +254,7 @@ export const About = () => {
               </HistoryTab>
             )}
             <Button className="text-xs mt-12" color="dark">
-              <a href={publicURL}>curriculum</a>
+              <a href={publicURL}>resume</a>
             </Button>
           </InformationBody>
         </InformationTabsWrapper>
