@@ -81,26 +81,11 @@ const LinksWrapper = styled.ul`
 `;
 
 const Wrapper = styled.div`
-  ${tw``}
   @media ${mediaQuery("md")} {
-    ${tw`flex items-start gap-x-12`}
+    ${tw`flex items-start justify-between`}
 
     &:nth-child(even) {
       ${tw`flex-row-reverse`}
-    }
-
-    &:nth-child(odd) {
-      ${Information} {
-        ${tw`flex flex-col justify-end items-end`}
-      }
-
-      ${Description} {
-        ${tw`text-right`}
-      }
-
-      ${TechnologiesWrapper} {
-        ${tw`flex-row-reverse`}
-      }
     }
   }
 `;
