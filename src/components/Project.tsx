@@ -82,7 +82,7 @@ const LinksWrapper = styled.ul`
 
 const Wrapper = styled.div`
   @media ${mediaQuery("md")} {
-    ${tw`flex items-start justify-between`}
+    ${tw`flex items-start justify-between gap-x-12`}
 
     &:nth-child(even) {
       ${tw`flex-row-reverse`}
