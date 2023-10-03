@@ -132,13 +132,15 @@ export const ProjectItem: React.FC<Project> = ({
         <LinksWrapper>
           {type === "development" ? (
             <>
-              <LinkIcon
-                label={`${title} sourcecode link`}
-                href={code}
-                size={20}
-                icon={FaGithub}
-                rounded
-              />
+              {code != null && (
+                <LinkIcon
+                  label={`${title} sourcecode link`}
+                  href={code}
+                  size={20}
+                  icon={FaGithub}
+                  rounded
+                />
+              )}
               <LinkIcon
                 label={`${title} demo link`}
                 href={demo}
