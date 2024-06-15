@@ -87,7 +87,7 @@ export const Hero = () => {
       <InfoWrapper>
         <Title>
           Hello <br></br>I’m Félix López <br></br>{" "}
-          <span>Full-Stack Developer</span>
+          <span>Software Engineer</span>
         </Title>
         <SubTitle>
           {yearsOfExperience}+ years of experience working in design and
