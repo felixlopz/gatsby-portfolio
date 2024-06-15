@@ -234,6 +234,10 @@ export const About = () => {
                   <strong>Work History:</strong>
                   <ul>
                     <li>
+                      Oct 2023 - Present - Hubrise - Front-end Developer and
+                      UI/UX Designer (upwork contract).
+                    </li>
+                    <li>
                       Jun 2021 - Sep 2022 - Carterhaugh LLC - Junior React
                       Developer (upwork contract).
                     </li>
