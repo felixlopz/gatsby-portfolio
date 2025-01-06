@@ -234,7 +234,7 @@ export const About = () => {
                   <strong>Work History:</strong>
                   <ul>
                     <li>
-                      Oct 2023 - Present - Hubrise - Front-end Developer and
+                      Oct 2023 - Sep 2024 - Hubrise - Front-end Developer and
                       UI/UX Designer (upwork contract).
                     </li>
                     <li>
