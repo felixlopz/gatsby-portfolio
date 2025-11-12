@@ -234,6 +234,9 @@ export const About = () => {
                   <strong>Work History:</strong>
                   <ul>
                     <li>
+                      Jan 2025 - Present - Kopcenter - React Native Developer.
+                    </li>
+                    <li>
                       Oct 2023 - Sep 2024 - Hubrise - Front-end Developer and
                       UI/UX Designer (upwork contract).
                     </li>
