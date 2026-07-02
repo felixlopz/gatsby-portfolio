@@ -32,6 +32,7 @@ export const Portfolio = () => {
               code
               demo
               description
+              show
               slug
               technologies
               title
@@ -48,10 +49,12 @@ export const Portfolio = () => {
     }
   `);
 
-  const projects: Array<Project> = allMarkdownRemark.edges.map((node: any) => ({
-    ...node.node.frontmatter,
-    thumbnail: node.node.frontmatter.image,
-  }));
+  const projects: Array<Project> = allMarkdownRemark.edges
+    .filter((node: any) => node.node.frontmatter.show !== false)
+    .map((node: any) => ({
+      ...node.node.frontmatter,
+      thumbnail: node.node.frontmatter.image,
+    }));
 
   return (
     <PortfolioWrapper id="portfolio">
